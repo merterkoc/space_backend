@@ -3,8 +3,7 @@ import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
 import 'package:mongo_pool/mongo_pool.dart';
-
-import 'src/env/platform_environment.dart';
+import 'package:space_backend/src/env/platform_environment.dart';
 
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {
   final ip = InternetAddress.anyIPv4;
