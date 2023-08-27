@@ -19,7 +19,7 @@ Future<void> initializeMongo() async {
       MongoPoolConfiguration(
         maxLifetimeMilliseconds: 100000,
         uriString: PlatformEnvironment.mongoUri,
-        poolSize: 2,
+        poolSize: 1,
       ),
     );
     await pool.open();
