@@ -9,8 +9,8 @@ part 'coordinate_dto.g.dart';
 class CoordinateDTO with _$CoordinateDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory CoordinateDTO({
-    @JsonKey(name: 'latitude') final double? latitude,
-    @JsonKey(name: 'longitude') final double? longitude,
+    @JsonKey(name: 'latitude') double? latitude,
+    @JsonKey(name: 'longitude') double? longitude,
   }) = _CoordinateDTO;
 
   factory CoordinateDTO.fromJson(Map<String, Object?> json) =>

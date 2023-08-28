@@ -15,9 +15,12 @@ extension ResponseExtensions on Response {
   }
 
   Response badRequest(String message) {
-    return Response.json(statusCode: 400, body: {
-      'message': message,
-    });
+    return Response.json(
+      statusCode: 400,
+      body: {
+        'message': message,
+      },
+    );
   }
 
   Response unauthorized({dynamic body}) {

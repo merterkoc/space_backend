@@ -6,17 +6,17 @@ part 'astronomic_event_entity.freezed.dart';
 part 'astronomic_event_entity.g.dart';
 
 @freezed
+@immutable
 class AstronomicEventEntity with _$AstronomicEventEntity {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventEntity({
-    @JsonKey(name: 'name', required: true) final String? name,
-    @JsonKey(name: 'description', required: true) final String? description,
-    @JsonKey(name: 'start_date', required: true) final DateTime? startDate,
-    @JsonKey(name: 'end_date', required: true) final DateTime? endDate,
-    @JsonKey(name: 'coordinate', required: true)
-    final CoordinateDTO? coordinate,
-    @JsonKey(name: 'type') final String? type,
-    @JsonKey(name: 'image') final List<String>? image,
+    @JsonKey(name: 'name', required: true) String? name,
+    @JsonKey(name: 'description', required: true) String? description,
+    @JsonKey(name: 'start_date', required: true) DateTime? startDate,
+    @JsonKey(name: 'end_date', required: true) DateTime? endDate,
+    @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
+    @JsonKey(name: 'type') String? type,
+    @JsonKey(name: 'image') List<String>? image,
   }) = _AstronomicEventEntity;
 
   factory AstronomicEventEntity.fromJson(Map<String, Object?> json) =>

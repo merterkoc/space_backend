@@ -5,3 +5,4 @@ linter:
 analyzer:
   exclude:
     - build/**
+    - lib/src/service/model/**

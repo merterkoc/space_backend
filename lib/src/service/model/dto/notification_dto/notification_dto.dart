@@ -9,8 +9,8 @@ part 'notification_dto.g.dart';
 class NotificationDTO with _$NotificationDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory NotificationDTO({
-    @JsonKey(name: 'title') final String? title,
-    @JsonKey(name: 'body') final String? body,
+    @JsonKey(name: 'title') String? title,
+    @JsonKey(name: 'body') String? body,
   }) = _NotificationDTO;
 
   factory NotificationDTO.fromJson(Map<String, Object?> json) =>

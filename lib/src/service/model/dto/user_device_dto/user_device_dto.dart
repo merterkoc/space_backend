@@ -10,8 +10,8 @@ part 'user_device_dto.g.dart';
 class UserDeviceDTO with _$UserDeviceDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory UserDeviceDTO({
-    @JsonKey(name: 'fcmToken', required: true) final String? fcmToken,
-    @JsonKey(name: 'coordinate') final CoordinateDTO? coordinate,
+    @JsonKey(name: 'fcmToken', required: true) String? fcmToken,
+    @JsonKey(name: 'coordinate') CoordinateDTO? coordinate,
   }) = _UserDeviceDTO;
 
   factory UserDeviceDTO.fromJson(Map<String, Object?> json) =>

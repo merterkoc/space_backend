@@ -10,14 +10,13 @@ part 'astronomic_event_dto.g.dart';
 class AstronomicEventDTO with _$AstronomicEventDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventDTO({
-    @JsonKey(name: 'name', required: true) final String? name,
-    @JsonKey(name: 'description', required: true) final String? description,
-    @JsonKey(name: 'start_date', required: true) final DateTime? startDate,
-    @JsonKey(name: 'end_date', required: true) final DateTime? endDate,
-    @JsonKey(name: 'coordinate', required: true)
-    final CoordinateDTO? coordinate,
-    @JsonKey(name: 'type') final String? type,
-    @JsonKey(name: 'image') final List<String>? image,
+    @JsonKey(name: 'name', required: true) String? name,
+    @JsonKey(name: 'description', required: true) String? description,
+    @JsonKey(name: 'start_date', required: true) DateTime? startDate,
+    @JsonKey(name: 'end_date', required: true) DateTime? endDate,
+    @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
+    @JsonKey(name: 'type') String? type,
+    @JsonKey(name: 'image') List<String>? image,
   }) = _AstronomicEventDTO;
 
   factory AstronomicEventDTO.fromJson(Map<String, Object?> json) =>
