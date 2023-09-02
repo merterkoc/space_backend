@@ -22,10 +22,16 @@ NotificationEntity _$NotificationEntityFromJson(Map<String, dynamic> json) {
 mixin _$NotificationEntity {
   @JsonKey(name: 'eventId', required: true)
   String get eventId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'topics')
+  List<String> get topics => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String? get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'body')
   String? get body => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sent')
+  bool? get sent => throw _privateConstructorUsedError;
+  @JsonKey(name: 'sentDate')
+  DateTime? get sentDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,8 +47,11 @@ abstract class $NotificationEntityCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'eventId', required: true) String eventId,
+      @JsonKey(name: 'topics') List<String> topics,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'body') String? body});
+      @JsonKey(name: 'body') String? body,
+      @JsonKey(name: 'sent') bool? sent,
+      @JsonKey(name: 'sentDate') DateTime? sentDate});
 }
 
 /// @nodoc
@@ -59,14 +68,21 @@ class _$NotificationEntityCopyWithImpl<$Res, $Val extends NotificationEntity>
   @override
   $Res call({
     Object? eventId = null,
+    Object? topics = null,
     Object? title = freezed,
     Object? body = freezed,
+    Object? sent = freezed,
+    Object? sentDate = freezed,
   }) {
     return _then(_value.copyWith(
       eventId: null == eventId
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
               as String,
+      topics: null == topics
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -75,6 +91,14 @@ class _$NotificationEntityCopyWithImpl<$Res, $Val extends NotificationEntity>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      sent: freezed == sent
+          ? _value.sent
+          : sent // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sentDate: freezed == sentDate
+          ? _value.sentDate
+          : sentDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -89,8 +113,11 @@ abstract class _$$_NotificationEntityCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'eventId', required: true) String eventId,
+      @JsonKey(name: 'topics') List<String> topics,
       @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'body') String? body});
+      @JsonKey(name: 'body') String? body,
+      @JsonKey(name: 'sent') bool? sent,
+      @JsonKey(name: 'sentDate') DateTime? sentDate});
 }
 
 /// @nodoc
@@ -105,14 +132,21 @@ class __$$_NotificationEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? eventId = null,
+    Object? topics = null,
     Object? title = freezed,
     Object? body = freezed,
+    Object? sent = freezed,
+    Object? sentDate = freezed,
   }) {
     return _then(_$_NotificationEntity(
       eventId: null == eventId
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
               as String,
+      topics: null == topics
+          ? _value._topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -121,6 +155,14 @@ class __$$_NotificationEntityCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      sent: freezed == sent
+          ? _value.sent
+          : sent // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      sentDate: freezed == sentDate
+          ? _value.sentDate
+          : sentDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -131,8 +173,12 @@ class __$$_NotificationEntityCopyWithImpl<$Res>
 class _$_NotificationEntity implements _NotificationEntity {
   _$_NotificationEntity(
       {@JsonKey(name: 'eventId', required: true) required this.eventId,
+      @JsonKey(name: 'topics') required final List<String> topics,
       @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'body') this.body});
+      @JsonKey(name: 'body') this.body,
+      @JsonKey(name: 'sent') this.sent,
+      @JsonKey(name: 'sentDate') this.sentDate})
+      : _topics = topics;
 
   factory _$_NotificationEntity.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationEntityFromJson(json);
@@ -140,16 +186,31 @@ class _$_NotificationEntity implements _NotificationEntity {
   @override
   @JsonKey(name: 'eventId', required: true)
   final String eventId;
+  final List<String> _topics;
+  @override
+  @JsonKey(name: 'topics')
+  List<String> get topics {
+    if (_topics is EqualUnmodifiableListView) return _topics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_topics);
+  }
+
   @override
   @JsonKey(name: 'title')
   final String? title;
   @override
   @JsonKey(name: 'body')
   final String? body;
+  @override
+  @JsonKey(name: 'sent')
+  final bool? sent;
+  @override
+  @JsonKey(name: 'sentDate')
+  final DateTime? sentDate;
 
   @override
   String toString() {
-    return 'NotificationEntity(eventId: $eventId, title: $title, body: $body)';
+    return 'NotificationEntity(eventId: $eventId, topics: $topics, title: $title, body: $body, sent: $sent, sentDate: $sentDate)';
   }
 
   @override
@@ -158,13 +219,24 @@ class _$_NotificationEntity implements _NotificationEntity {
         (other.runtimeType == runtimeType &&
             other is _$_NotificationEntity &&
             (identical(other.eventId, eventId) || other.eventId == eventId) &&
+            const DeepCollectionEquality().equals(other._topics, _topics) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body));
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.sent, sent) || other.sent == sent) &&
+            (identical(other.sentDate, sentDate) ||
+                other.sentDate == sentDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, eventId, title, body);
+  int get hashCode => Object.hash(
+      runtimeType,
+      eventId,
+      const DeepCollectionEquality().hash(_topics),
+      title,
+      body,
+      sent,
+      sentDate);
 
   @JsonKey(ignore: true)
   @override
@@ -184,8 +256,12 @@ class _$_NotificationEntity implements _NotificationEntity {
 abstract class _NotificationEntity implements NotificationEntity {
   factory _NotificationEntity(
       {@JsonKey(name: 'eventId', required: true) required final String eventId,
+      @JsonKey(name: 'topics') required final List<String> topics,
       @JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'body') final String? body}) = _$_NotificationEntity;
+      @JsonKey(name: 'body') final String? body,
+      @JsonKey(name: 'sent') final bool? sent,
+      @JsonKey(name: 'sentDate')
+      final DateTime? sentDate}) = _$_NotificationEntity;
 
   factory _NotificationEntity.fromJson(Map<String, dynamic> json) =
       _$_NotificationEntity.fromJson;
@@ -194,11 +270,20 @@ abstract class _NotificationEntity implements NotificationEntity {
   @JsonKey(name: 'eventId', required: true)
   String get eventId;
   @override
+  @JsonKey(name: 'topics')
+  List<String> get topics;
+  @override
   @JsonKey(name: 'title')
   String? get title;
   @override
   @JsonKey(name: 'body')
   String? get body;
+  @override
+  @JsonKey(name: 'sent')
+  bool? get sent;
+  @override
+  @JsonKey(name: 'sentDate')
+  DateTime? get sentDate;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationEntityCopyWith<_$_NotificationEntity> get copyWith =>

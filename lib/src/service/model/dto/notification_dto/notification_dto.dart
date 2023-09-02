@@ -6,14 +6,15 @@ part 'notification_dto.g.dart';
 
 @freezed
 @immutable
-  class NotificationDTO with _$NotificationDTO {
-    @JsonSerializable(explicitToJson: true, createToJson: true)
-    factory NotificationDTO({
-      @JsonKey(name: 'eventId', required: true) String? eventId,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'body') String? body,
-    }) = _NotificationDTO;
+class NotificationDTO with _$NotificationDTO {
+  @JsonSerializable(explicitToJson: true, createToJson: true)
+  factory NotificationDTO({
+    @JsonKey(name: 'eventId', required: true) String? eventId,
+    @JsonKey(name: 'title', required: true) String? title,
+    @JsonKey(name: 'body', required: true) String? body,
+    @JsonKey(name: 'topics') List<String>? topics,
+  }) = _NotificationDTO;
 
-    factory NotificationDTO.fromJson(Map<String, Object?> json) =>
-        _$NotificationDTOFromJson(json);
-  }
+  factory NotificationDTO.fromJson(Map<String, Object?> json) =>
+      _$NotificationDTOFromJson(json);
+}

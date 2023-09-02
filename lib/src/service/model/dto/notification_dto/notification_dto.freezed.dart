@@ -22,10 +22,12 @@ NotificationDTO _$NotificationDTOFromJson(Map<String, dynamic> json) {
 mixin _$NotificationDTO {
   @JsonKey(name: 'eventId', required: true)
   String? get eventId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', required: true)
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', required: true)
   String? get body => throw _privateConstructorUsedError;
+  @JsonKey(name: 'topics')
+  List<String>? get topics => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,8 +43,9 @@ abstract class $NotificationDTOCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'eventId', required: true) String? eventId,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'body') String? body});
+      @JsonKey(name: 'title', required: true) String? title,
+      @JsonKey(name: 'body', required: true) String? body,
+      @JsonKey(name: 'topics') List<String>? topics});
 }
 
 /// @nodoc
@@ -61,6 +64,7 @@ class _$NotificationDTOCopyWithImpl<$Res, $Val extends NotificationDTO>
     Object? eventId = freezed,
     Object? title = freezed,
     Object? body = freezed,
+    Object? topics = freezed,
   }) {
     return _then(_value.copyWith(
       eventId: freezed == eventId
@@ -75,6 +79,10 @@ class _$NotificationDTOCopyWithImpl<$Res, $Val extends NotificationDTO>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      topics: freezed == topics
+          ? _value.topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -89,8 +97,9 @@ abstract class _$$_NotificationDTOCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'eventId', required: true) String? eventId,
-      @JsonKey(name: 'title') String? title,
-      @JsonKey(name: 'body') String? body});
+      @JsonKey(name: 'title', required: true) String? title,
+      @JsonKey(name: 'body', required: true) String? body,
+      @JsonKey(name: 'topics') List<String>? topics});
 }
 
 /// @nodoc
@@ -107,6 +116,7 @@ class __$$_NotificationDTOCopyWithImpl<$Res>
     Object? eventId = freezed,
     Object? title = freezed,
     Object? body = freezed,
+    Object? topics = freezed,
   }) {
     return _then(_$_NotificationDTO(
       eventId: freezed == eventId
@@ -121,6 +131,10 @@ class __$$_NotificationDTOCopyWithImpl<$Res>
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
               as String?,
+      topics: freezed == topics
+          ? _value._topics
+          : topics // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -131,8 +145,10 @@ class __$$_NotificationDTOCopyWithImpl<$Res>
 class _$_NotificationDTO implements _NotificationDTO {
   _$_NotificationDTO(
       {@JsonKey(name: 'eventId', required: true) this.eventId,
-      @JsonKey(name: 'title') this.title,
-      @JsonKey(name: 'body') this.body});
+      @JsonKey(name: 'title', required: true) this.title,
+      @JsonKey(name: 'body', required: true) this.body,
+      @JsonKey(name: 'topics') final List<String>? topics})
+      : _topics = topics;
 
   factory _$_NotificationDTO.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationDTOFromJson(json);
@@ -141,15 +157,25 @@ class _$_NotificationDTO implements _NotificationDTO {
   @JsonKey(name: 'eventId', required: true)
   final String? eventId;
   @override
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', required: true)
   final String? title;
   @override
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', required: true)
   final String? body;
+  final List<String>? _topics;
+  @override
+  @JsonKey(name: 'topics')
+  List<String>? get topics {
+    final value = _topics;
+    if (value == null) return null;
+    if (_topics is EqualUnmodifiableListView) return _topics;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'NotificationDTO(eventId: $eventId, title: $title, body: $body)';
+    return 'NotificationDTO(eventId: $eventId, title: $title, body: $body, topics: $topics)';
   }
 
   @override
@@ -159,12 +185,14 @@ class _$_NotificationDTO implements _NotificationDTO {
             other is _$_NotificationDTO &&
             (identical(other.eventId, eventId) || other.eventId == eventId) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.body, body) || other.body == body));
+            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other._topics, _topics));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, eventId, title, body);
+  int get hashCode => Object.hash(runtimeType, eventId, title, body,
+      const DeepCollectionEquality().hash(_topics));
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +210,11 @@ class _$_NotificationDTO implements _NotificationDTO {
 
 abstract class _NotificationDTO implements NotificationDTO {
   factory _NotificationDTO(
-      {@JsonKey(name: 'eventId', required: true) final String? eventId,
-      @JsonKey(name: 'title') final String? title,
-      @JsonKey(name: 'body') final String? body}) = _$_NotificationDTO;
+          {@JsonKey(name: 'eventId', required: true) final String? eventId,
+          @JsonKey(name: 'title', required: true) final String? title,
+          @JsonKey(name: 'body', required: true) final String? body,
+          @JsonKey(name: 'topics') final List<String>? topics}) =
+      _$_NotificationDTO;
 
   factory _NotificationDTO.fromJson(Map<String, dynamic> json) =
       _$_NotificationDTO.fromJson;
@@ -193,11 +223,14 @@ abstract class _NotificationDTO implements NotificationDTO {
   @JsonKey(name: 'eventId', required: true)
   String? get eventId;
   @override
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', required: true)
   String? get title;
   @override
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', required: true)
   String? get body;
+  @override
+  @JsonKey(name: 'topics')
+  List<String>? get topics;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationDTOCopyWith<_$_NotificationDTO> get copyWith =>
