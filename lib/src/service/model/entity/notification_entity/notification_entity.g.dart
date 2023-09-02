@@ -10,14 +10,14 @@ _$_NotificationEntity _$$_NotificationEntityFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
-    requiredKeys: const ['eventId'],
+    requiredKeys: const ['eventId', 'sent'],
   );
   return _$_NotificationEntity(
     eventId: json['eventId'] as String,
     topics: (json['topics'] as List<dynamic>).map((e) => e as String).toList(),
+    sent: json['sent'] as bool? ?? false,
     title: json['title'] as String?,
     body: json['body'] as String?,
-    sent: json['sent'] as bool?,
     sentDate: json['sentDate'] == null
         ? null
         : DateTime.parse(json['sentDate'] as String),
@@ -29,8 +29,8 @@ Map<String, dynamic> _$$_NotificationEntityToJson(
     <String, dynamic>{
       'eventId': instance.eventId,
       'topics': instance.topics,
+      'sent': instance.sent,
       'title': instance.title,
       'body': instance.body,
-      'sent': instance.sent,
       'sentDate': instance.sentDate?.toIso8601String(),
     };

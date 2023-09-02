@@ -12,6 +12,7 @@ _$_NotificationDTO _$$_NotificationDTOFromJson(Map<String, dynamic> json) {
     requiredKeys: const ['eventId', 'title', 'body'],
   );
   return _$_NotificationDTO(
+    sent: json['sent'] as bool? ?? false,
     eventId: json['eventId'] as String?,
     title: json['title'] as String?,
     body: json['body'] as String?,
@@ -22,6 +23,7 @@ _$_NotificationDTO _$$_NotificationDTOFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$$_NotificationDTOToJson(_$_NotificationDTO instance) =>
     <String, dynamic>{
+      'sent': instance.sent,
       'eventId': instance.eventId,
       'title': instance.title,
       'body': instance.body,

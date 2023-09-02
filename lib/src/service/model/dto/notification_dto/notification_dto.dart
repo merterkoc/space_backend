@@ -9,6 +9,7 @@ part 'notification_dto.g.dart';
 class NotificationDTO with _$NotificationDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory NotificationDTO({
+    @JsonKey(name: 'sent', defaultValue: false) required bool sent,
     @JsonKey(name: 'eventId', required: true) String? eventId,
     @JsonKey(name: 'title', required: true) String? title,
     @JsonKey(name: 'body', required: true) String? body,

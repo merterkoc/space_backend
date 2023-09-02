@@ -11,9 +11,10 @@ class NotificationEntity with _$NotificationEntity {
   factory NotificationEntity({
     @JsonKey(name: 'eventId', required: true) required String eventId,
     @JsonKey(name: 'topics') required List<String> topics,
+    @JsonKey(name: 'sent', required: true, defaultValue: false)
+    required bool sent,
     @JsonKey(name: 'title') String? title,
     @JsonKey(name: 'body') String? body,
-    @JsonKey(name: 'sent') bool? sent,
     @JsonKey(name: 'sentDate') DateTime? sentDate,
   }) = _NotificationEntity;
 

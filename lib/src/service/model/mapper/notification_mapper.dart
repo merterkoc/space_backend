@@ -10,6 +10,7 @@ class NotificationMapper with Mapper<NotificationDTO, NotificationEntity> {
       title: object.title,
       body: object.body,
       topics: object.topics ?? [],
+      sent: object.sent,
     );
   }
 }

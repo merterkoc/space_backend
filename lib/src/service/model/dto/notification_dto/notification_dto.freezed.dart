@@ -20,6 +20,8 @@ NotificationDTO _$NotificationDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotificationDTO {
+  @JsonKey(name: 'sent', defaultValue: false)
+  bool get sent => throw _privateConstructorUsedError;
   @JsonKey(name: 'eventId', required: true)
   String? get eventId => throw _privateConstructorUsedError;
   @JsonKey(name: 'title', required: true)
@@ -42,7 +44,8 @@ abstract class $NotificationDTOCopyWith<$Res> {
       _$NotificationDTOCopyWithImpl<$Res, NotificationDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'eventId', required: true) String? eventId,
+      {@JsonKey(name: 'sent', defaultValue: false) bool sent,
+      @JsonKey(name: 'eventId', required: true) String? eventId,
       @JsonKey(name: 'title', required: true) String? title,
       @JsonKey(name: 'body', required: true) String? body,
       @JsonKey(name: 'topics') List<String>? topics});
@@ -61,12 +64,17 @@ class _$NotificationDTOCopyWithImpl<$Res, $Val extends NotificationDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? sent = null,
     Object? eventId = freezed,
     Object? title = freezed,
     Object? body = freezed,
     Object? topics = freezed,
   }) {
     return _then(_value.copyWith(
+      sent: null == sent
+          ? _value.sent
+          : sent // ignore: cast_nullable_to_non_nullable
+              as bool,
       eventId: freezed == eventId
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
@@ -96,7 +104,8 @@ abstract class _$$_NotificationDTOCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'eventId', required: true) String? eventId,
+      {@JsonKey(name: 'sent', defaultValue: false) bool sent,
+      @JsonKey(name: 'eventId', required: true) String? eventId,
       @JsonKey(name: 'title', required: true) String? title,
       @JsonKey(name: 'body', required: true) String? body,
       @JsonKey(name: 'topics') List<String>? topics});
@@ -113,12 +122,17 @@ class __$$_NotificationDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? sent = null,
     Object? eventId = freezed,
     Object? title = freezed,
     Object? body = freezed,
     Object? topics = freezed,
   }) {
     return _then(_$_NotificationDTO(
+      sent: null == sent
+          ? _value.sent
+          : sent // ignore: cast_nullable_to_non_nullable
+              as bool,
       eventId: freezed == eventId
           ? _value.eventId
           : eventId // ignore: cast_nullable_to_non_nullable
@@ -144,7 +158,8 @@ class __$$_NotificationDTOCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, createToJson: true)
 class _$_NotificationDTO implements _NotificationDTO {
   _$_NotificationDTO(
-      {@JsonKey(name: 'eventId', required: true) this.eventId,
+      {@JsonKey(name: 'sent', defaultValue: false) required this.sent,
+      @JsonKey(name: 'eventId', required: true) this.eventId,
       @JsonKey(name: 'title', required: true) this.title,
       @JsonKey(name: 'body', required: true) this.body,
       @JsonKey(name: 'topics') final List<String>? topics})
@@ -153,6 +168,9 @@ class _$_NotificationDTO implements _NotificationDTO {
   factory _$_NotificationDTO.fromJson(Map<String, dynamic> json) =>
       _$$_NotificationDTOFromJson(json);
 
+  @override
+  @JsonKey(name: 'sent', defaultValue: false)
+  final bool sent;
   @override
   @JsonKey(name: 'eventId', required: true)
   final String? eventId;
@@ -175,7 +193,7 @@ class _$_NotificationDTO implements _NotificationDTO {
 
   @override
   String toString() {
-    return 'NotificationDTO(eventId: $eventId, title: $title, body: $body, topics: $topics)';
+    return 'NotificationDTO(sent: $sent, eventId: $eventId, title: $title, body: $body, topics: $topics)';
   }
 
   @override
@@ -183,6 +201,7 @@ class _$_NotificationDTO implements _NotificationDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NotificationDTO &&
+            (identical(other.sent, sent) || other.sent == sent) &&
             (identical(other.eventId, eventId) || other.eventId == eventId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.body, body) || other.body == body) &&
@@ -191,7 +210,7 @@ class _$_NotificationDTO implements _NotificationDTO {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, eventId, title, body,
+  int get hashCode => Object.hash(runtimeType, sent, eventId, title, body,
       const DeepCollectionEquality().hash(_topics));
 
   @JsonKey(ignore: true)
@@ -210,7 +229,8 @@ class _$_NotificationDTO implements _NotificationDTO {
 
 abstract class _NotificationDTO implements NotificationDTO {
   factory _NotificationDTO(
-          {@JsonKey(name: 'eventId', required: true) final String? eventId,
+          {@JsonKey(name: 'sent', defaultValue: false) required final bool sent,
+          @JsonKey(name: 'eventId', required: true) final String? eventId,
           @JsonKey(name: 'title', required: true) final String? title,
           @JsonKey(name: 'body', required: true) final String? body,
           @JsonKey(name: 'topics') final List<String>? topics}) =
@@ -219,6 +239,9 @@ abstract class _NotificationDTO implements NotificationDTO {
   factory _NotificationDTO.fromJson(Map<String, dynamic> json) =
       _$_NotificationDTO.fromJson;
 
+  @override
+  @JsonKey(name: 'sent', defaultValue: false)
+  bool get sent;
   @override
   @JsonKey(name: 'eventId', required: true)
   String? get eventId;
