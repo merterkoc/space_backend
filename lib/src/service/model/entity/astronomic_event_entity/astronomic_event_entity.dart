@@ -10,6 +10,7 @@ part 'astronomic_event_entity.g.dart';
 class AstronomicEventEntity with _$AstronomicEventEntity {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventEntity({
+    @JsonKey(name: 'notification') required List<String> notification,
     @JsonKey(name: 'name', required: true) String? name,
     @JsonKey(name: 'description', required: true) String? description,
     @JsonKey(name: 'start_date', required: true) DateTime? startDate,

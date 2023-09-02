@@ -15,7 +15,7 @@ _$_NotificationInfoDTO _$$_NotificationInfoDTOFromJson(
   return _$_NotificationInfoDTO(
     notification: json['notification'] == null
         ? null
-        : NotificationDTO.fromJson(
+        : FirebaseNotificationDTO.fromJson(
             json['notification'] as Map<String, dynamic>),
     to: json['to'] as String?,
     priority: json['priority'] as String?,

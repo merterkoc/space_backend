@@ -16,9 +16,9 @@ class AstronomicEventController {
     }
 
     final response = await AstronomicEventRepository()
-        .postAstronomicEvent<dynamic>(AstronomicEventMapper().call(data));
+        .saveAstronomicEvent<dynamic>(AstronomicEventMapper().call(data));
     return Response.json(
-      statusCode: response.data == null ? 400 : 200,
+      statusCode: response.statusCode,
       body: ResponseEntity.toJson(response),
     );
   }

@@ -21,7 +21,8 @@ NotificationInfoDTO _$NotificationInfoDTOFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$NotificationInfoDTO {
   @JsonKey(name: 'notification', required: true)
-  NotificationDTO? get notification => throw _privateConstructorUsedError;
+  FirebaseNotificationDTO? get notification =>
+      throw _privateConstructorUsedError;
   @JsonKey(name: 'to')
   String? get to => throw _privateConstructorUsedError;
   @JsonKey(name: 'priority')
@@ -41,11 +42,11 @@ abstract class $NotificationInfoDTOCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'notification', required: true)
-      NotificationDTO? notification,
+      FirebaseNotificationDTO? notification,
       @JsonKey(name: 'to') String? to,
       @JsonKey(name: 'priority') String? priority});
 
-  $NotificationDTOCopyWith<$Res>? get notification;
+  $FirebaseNotificationDTOCopyWith<$Res>? get notification;
 }
 
 /// @nodoc
@@ -69,7 +70,7 @@ class _$NotificationInfoDTOCopyWithImpl<$Res, $Val extends NotificationInfoDTO>
       notification: freezed == notification
           ? _value.notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as NotificationDTO?,
+              as FirebaseNotificationDTO?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -83,12 +84,13 @@ class _$NotificationInfoDTOCopyWithImpl<$Res, $Val extends NotificationInfoDTO>
 
   @override
   @pragma('vm:prefer-inline')
-  $NotificationDTOCopyWith<$Res>? get notification {
+  $FirebaseNotificationDTOCopyWith<$Res>? get notification {
     if (_value.notification == null) {
       return null;
     }
 
-    return $NotificationDTOCopyWith<$Res>(_value.notification!, (value) {
+    return $FirebaseNotificationDTOCopyWith<$Res>(_value.notification!,
+        (value) {
       return _then(_value.copyWith(notification: value) as $Val);
     });
   }
@@ -104,12 +106,12 @@ abstract class _$$_NotificationInfoDTOCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'notification', required: true)
-      NotificationDTO? notification,
+      FirebaseNotificationDTO? notification,
       @JsonKey(name: 'to') String? to,
       @JsonKey(name: 'priority') String? priority});
 
   @override
-  $NotificationDTOCopyWith<$Res>? get notification;
+  $FirebaseNotificationDTOCopyWith<$Res>? get notification;
 }
 
 /// @nodoc
@@ -131,7 +133,7 @@ class __$$_NotificationInfoDTOCopyWithImpl<$Res>
       notification: freezed == notification
           ? _value.notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as NotificationDTO?,
+              as FirebaseNotificationDTO?,
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
@@ -158,7 +160,7 @@ class _$_NotificationInfoDTO implements _NotificationInfoDTO {
 
   @override
   @JsonKey(name: 'notification', required: true)
-  final NotificationDTO? notification;
+  final FirebaseNotificationDTO? notification;
   @override
   @JsonKey(name: 'to')
   final String? to;
@@ -205,7 +207,7 @@ class _$_NotificationInfoDTO implements _NotificationInfoDTO {
 abstract class _NotificationInfoDTO implements NotificationInfoDTO {
   factory _NotificationInfoDTO(
           {@JsonKey(name: 'notification', required: true)
-          final NotificationDTO? notification,
+          final FirebaseNotificationDTO? notification,
           @JsonKey(name: 'to') final String? to,
           @JsonKey(name: 'priority') final String? priority}) =
       _$_NotificationInfoDTO;
@@ -215,7 +217,7 @@ abstract class _NotificationInfoDTO implements NotificationInfoDTO {
 
   @override
   @JsonKey(name: 'notification', required: true)
-  NotificationDTO? get notification;
+  FirebaseNotificationDTO? get notification;
   @override
   @JsonKey(name: 'to')
   String? get to;

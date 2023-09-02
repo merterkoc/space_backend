@@ -14,6 +14,7 @@ class AstronomicEventMapper
       coordinate: object.coordinate,
       type: object.type,
       image: object.image,
+      notification: const [],
     );
   }
 }

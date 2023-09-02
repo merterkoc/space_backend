@@ -1,24 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'notification_dto.dart';
+part of 'notification_entity.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NotificationDTO _$$_NotificationDTOFromJson(Map<String, dynamic> json) {
+_$_NotificationEntity _$$_NotificationEntityFromJson(
+    Map<String, dynamic> json) {
   $checkKeys(
     json,
     requiredKeys: const ['eventId'],
   );
-  return _$_NotificationDTO(
-    eventId: json['eventId'] as String?,
+  return _$_NotificationEntity(
+    eventId: json['eventId'] as String,
     title: json['title'] as String?,
     body: json['body'] as String?,
   );
 }
 
-Map<String, dynamic> _$$_NotificationDTOToJson(_$_NotificationDTO instance) =>
+Map<String, dynamic> _$$_NotificationEntityToJson(
+        _$_NotificationEntity instance) =>
     <String, dynamic>{
       'eventId': instance.eventId,
       'title': instance.title,

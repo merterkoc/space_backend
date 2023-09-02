@@ -21,6 +21,8 @@ AstronomicEventEntity _$AstronomicEventEntityFromJson(
 
 /// @nodoc
 mixin _$AstronomicEventEntity {
+  @JsonKey(name: 'notification')
+  List<String> get notification => throw _privateConstructorUsedError;
   @JsonKey(name: 'name', required: true)
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description', required: true)
@@ -49,7 +51,8 @@ abstract class $AstronomicEventEntityCopyWith<$Res> {
       _$AstronomicEventEntityCopyWithImpl<$Res, AstronomicEventEntity>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'name', required: true) String? name,
+      {@JsonKey(name: 'notification') List<String> notification,
+      @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
       @JsonKey(name: 'end_date', required: true) DateTime? endDate,
@@ -74,6 +77,7 @@ class _$AstronomicEventEntityCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? notification = null,
     Object? name = freezed,
     Object? description = freezed,
     Object? startDate = freezed,
@@ -83,6 +87,10 @@ class _$AstronomicEventEntityCopyWithImpl<$Res,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
+      notification: null == notification
+          ? _value.notification
+          : notification // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -136,7 +144,8 @@ abstract class _$$_AstronomicEventEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'name', required: true) String? name,
+      {@JsonKey(name: 'notification') List<String> notification,
+      @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
       @JsonKey(name: 'end_date', required: true) DateTime? endDate,
@@ -159,6 +168,7 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? notification = null,
     Object? name = freezed,
     Object? description = freezed,
     Object? startDate = freezed,
@@ -168,6 +178,10 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
     Object? image = freezed,
   }) {
     return _then(_$_AstronomicEventEntity(
+      notification: null == notification
+          ? _value._notification
+          : notification // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -205,17 +219,28 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, createToJson: true)
 class _$_AstronomicEventEntity implements _AstronomicEventEntity {
   _$_AstronomicEventEntity(
-      {@JsonKey(name: 'name', required: true) this.name,
+      {@JsonKey(name: 'notification') required final List<String> notification,
+      @JsonKey(name: 'name', required: true) this.name,
       @JsonKey(name: 'description', required: true) this.description,
       @JsonKey(name: 'start_date', required: true) this.startDate,
       @JsonKey(name: 'end_date', required: true) this.endDate,
       @JsonKey(name: 'coordinate', required: true) this.coordinate,
       @JsonKey(name: 'type') this.type,
       @JsonKey(name: 'image') final List<String>? image})
-      : _image = image;
+      : _notification = notification,
+        _image = image;
 
   factory _$_AstronomicEventEntity.fromJson(Map<String, dynamic> json) =>
       _$$_AstronomicEventEntityFromJson(json);
+
+  final List<String> _notification;
+  @override
+  @JsonKey(name: 'notification')
+  List<String> get notification {
+    if (_notification is EqualUnmodifiableListView) return _notification;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_notification);
+  }
 
   @override
   @JsonKey(name: 'name', required: true)
@@ -248,7 +273,7 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
   @override
   String toString() {
-    return 'AstronomicEventEntity(name: $name, description: $description, startDate: $startDate, endDate: $endDate, coordinate: $coordinate, type: $type, image: $image)';
+    return 'AstronomicEventEntity(notification: $notification, name: $name, description: $description, startDate: $startDate, endDate: $endDate, coordinate: $coordinate, type: $type, image: $image)';
   }
 
   @override
@@ -256,6 +281,8 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AstronomicEventEntity &&
+            const DeepCollectionEquality()
+                .equals(other._notification, _notification) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -270,8 +297,16 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, startDate,
-      endDate, coordinate, type, const DeepCollectionEquality().hash(_image));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_notification),
+      name,
+      description,
+      startDate,
+      endDate,
+      coordinate,
+      type,
+      const DeepCollectionEquality().hash(_image));
 
   @JsonKey(ignore: true)
   @override
@@ -290,7 +325,8 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
 abstract class _AstronomicEventEntity implements AstronomicEventEntity {
   factory _AstronomicEventEntity(
-      {@JsonKey(name: 'name', required: true) final String? name,
+      {@JsonKey(name: 'notification') required final List<String> notification,
+      @JsonKey(name: 'name', required: true) final String? name,
       @JsonKey(name: 'description', required: true) final String? description,
       @JsonKey(name: 'start_date', required: true) final DateTime? startDate,
       @JsonKey(name: 'end_date', required: true) final DateTime? endDate,
@@ -303,6 +339,9 @@ abstract class _AstronomicEventEntity implements AstronomicEventEntity {
   factory _AstronomicEventEntity.fromJson(Map<String, dynamic> json) =
       _$_AstronomicEventEntity.fromJson;
 
+  @override
+  @JsonKey(name: 'notification')
+  List<String> get notification;
   @override
   @JsonKey(name: 'name', required: true)
   String? get name;
