@@ -41,6 +41,21 @@ class MongoClient {
     }
   }
 
+  Future<List<Map<String, dynamic>>> find(
+    String collectionName, {
+    SelectorBuilder? filter,
+  }) async {
+    final db = await mongoDbPoolService.acquire();
+    try {
+      final collection = db.collection(collectionName);
+      return await collection.find(filter).toList();
+    } catch (e) {
+      throw Exception(e);
+    } finally {
+      await mongoDbPoolService.release(db);
+    }
+  }
+
   Future<WriteResult> updateOneById(
     String collectionName,
     ObjectId id,

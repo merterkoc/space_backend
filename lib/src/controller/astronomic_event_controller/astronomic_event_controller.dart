@@ -22,4 +22,37 @@ class AstronomicEventController {
       body: ResponseEntity.toJson(response),
     );
   }
+
+  Future<Response> getAllAstronomicEvent(RequestContext context) async {
+    final response =
+        await AstronomicEventRepository().getAstronomicEvent<dynamic>();
+    return Response.json(
+      statusCode: response.statusCode,
+      body: ResponseEntity.toJson(response),
+    );
+  }
+
+  Future<Response> getAstronomicEventList(RequestContext context) async {
+    final size = int.tryParse(context.request.uri.queryParameters['size']!);
+    final page = int.tryParse(context.request.uri.queryParameters['page']!);
+
+    final response = await AstronomicEventRepository()
+        .getAstronomicEventList<dynamic>(page!, size!);
+    return Response.json(
+      statusCode: response.statusCode,
+      body: ResponseEntity.toJson(response),
+    );
+  }
+
+  Future<Response> getAstronomicEventById(
+    RequestContext context,
+    String id,
+  ) async {
+    final response =
+        await AstronomicEventRepository().getAstronomicEventById(id);
+    return Response.json(
+      statusCode: response.statusCode,
+      body: ResponseEntity.toJson(response),
+    );
+  }
 }
