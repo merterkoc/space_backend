@@ -32,7 +32,7 @@ mixin _$AstronomicEventDTO {
   CoordinateDTO? get coordinate => throw _privateConstructorUsedError;
   @JsonKey(name: 'type')
   String? get type => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', required: false)
   List<String>? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $AstronomicEventDTOCopyWith<$Res> {
       @JsonKey(name: 'end_date', required: true) DateTime? endDate,
       @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
       @JsonKey(name: 'type') String? type,
-      @JsonKey(name: 'image') List<String>? image});
+      @JsonKey(name: 'image', required: false) List<String>? image});
 
   $CoordinateDTOCopyWith<$Res>? get coordinate;
 }
@@ -140,7 +140,7 @@ abstract class _$$_AstronomicEventDTOCopyWith<$Res>
       @JsonKey(name: 'end_date', required: true) DateTime? endDate,
       @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
       @JsonKey(name: 'type') String? type,
-      @JsonKey(name: 'image') List<String>? image});
+      @JsonKey(name: 'image', required: false) List<String>? image});
 
   @override
   $CoordinateDTOCopyWith<$Res>? get coordinate;
@@ -209,7 +209,7 @@ class _$_AstronomicEventDTO implements _AstronomicEventDTO {
       @JsonKey(name: 'end_date', required: true) this.endDate,
       @JsonKey(name: 'coordinate', required: true) this.coordinate,
       @JsonKey(name: 'type') this.type,
-      @JsonKey(name: 'image') final List<String>? image})
+      @JsonKey(name: 'image', required: false) final List<String>? image})
       : _image = image;
 
   factory _$_AstronomicEventDTO.fromJson(Map<String, dynamic> json) =>
@@ -235,7 +235,7 @@ class _$_AstronomicEventDTO implements _AstronomicEventDTO {
   final String? type;
   final List<String>? _image;
   @override
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', required: false)
   List<String>? get image {
     final value = _image;
     if (value == null) return null;
@@ -295,7 +295,7 @@ abstract class _AstronomicEventDTO implements AstronomicEventDTO {
       @JsonKey(name: 'coordinate', required: true)
       final CoordinateDTO? coordinate,
       @JsonKey(name: 'type') final String? type,
-      @JsonKey(name: 'image')
+      @JsonKey(name: 'image', required: false)
       final List<String>? image}) = _$_AstronomicEventDTO;
 
   factory _AstronomicEventDTO.fromJson(Map<String, dynamic> json) =
@@ -320,7 +320,7 @@ abstract class _AstronomicEventDTO implements AstronomicEventDTO {
   @JsonKey(name: 'type')
   String? get type;
   @override
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', required: false)
   List<String>? get image;
   @override
   @JsonKey(ignore: true)

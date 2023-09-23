@@ -55,4 +55,23 @@ class AstronomicEventController {
       body: ResponseEntity.toJson(response),
     );
   }
+
+  Future<Response> putAstronomicEvent(RequestContext context, String id) async {
+    final body = await context.request.json();
+    AstronomicEventDTO? data;
+    try {
+      data = AstronomicEventDTO.fromJson(body as Map<String, dynamic>);
+    } catch (e) {
+      return Response().badRequest('JSON parse error: $e');
+    }
+    final response =
+        await AstronomicEventRepository().putAstronomicEvent<dynamic>(
+      AstronomicEventMapper().call(data),
+      id,
+    );
+    return Response.json(
+      statusCode: response.statusCode,
+      body: ResponseEntity.toJson(response),
+    );
+  }
 }

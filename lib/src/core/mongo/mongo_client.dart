@@ -56,17 +56,20 @@ class MongoClient {
     }
   }
 
-  Future<WriteResult> updateOneById(
+  Future<Map<String, dynamic>> updateOneById(
     String collectionName,
     ObjectId id,
     Map<String, dynamic> modify,
   ) async {
     final db = await mongoDbPoolService.acquire();
     try {
+      final updateData = {
+        r'$set': modify,
+      };
       final collection = db.collection(collectionName);
-      return await collection.updateOne(
+      return await collection.update(
         where.id(id),
-        modify,
+        updateData,
       );
     } catch (e) {
       throw Exception(e);

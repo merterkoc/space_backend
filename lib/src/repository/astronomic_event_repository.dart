@@ -74,4 +74,19 @@ class AstronomicEventRepository with BaseRepository {
       data: newResult,
     );
   }
+
+  Future<ResponseEntity<T>> putAstronomicEvent<T>(
+    AstronomicEventEntity astronomicEvent,
+    String id,
+  ) async {
+    await mongoClient.updateOneById(
+      'astronomic_event',
+      ObjectId.parse(id),
+      astronomicEvent.toJson(),
+    );
+    return ResponseEntity(
+      statusCode: 200,
+      data: id as T,
+    );
+  }
 }
