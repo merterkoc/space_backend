@@ -12,8 +12,7 @@ mixin PlatformEnvironment {
     if (serverKey == null) {
       throw Exception('Please set $_serverKey in .env file');
     }
-    return Platform.environment[_serverKey]!
-        .substring(1, Platform.environment[_serverKey]!.length - 1);
+    return Platform.environment[_serverKey]!;
   }
 
   static String get mongoUri {
@@ -21,9 +20,6 @@ mixin PlatformEnvironment {
     if (mongoUri == null) {
       return 'mongodb://localhost:27017/space';
     }
-    return Platform.environment[_mongoUri]!.substring(
-      1,
-      Platform.environment[_mongoUri]!.length - 1,
-    );
+    return Platform.environment[_mongoUri]!;
   }
 }
