@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
-import 'package:space_backend/src/repository/notification_repository.dart';
 import 'package:space_backend/src/service/model/dto/notification_dto/notification_dto.dart';
-import 'package:space_backend/src/service/model/mapper/notification_mapper.dart';
+import 'package:space_backend/src/service/notification_service/notification_service.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
 class NotificationController {
@@ -17,14 +14,8 @@ class NotificationController {
       return Response().badRequest('JSON parse error: $e');
     }
 
-    final response = await NotificationRepository()
-        .saveNotification<dynamic>(NotificationMapper().call(data))
-        .onError(
-          (error, stackTrace) => ResponseEntity<dynamic>(
-            statusCode: HttpStatus.badRequest,
-            message: error.toString(),
-          ),
-        );
+    final response = await NotificationService().saveAndSendNotification(data);
+
     return Response.json(
       statusCode: response.statusCode,
       body: ResponseEntity.toJson(response),

@@ -18,6 +18,7 @@ _$_NotificationInfoDTO _$$_NotificationInfoDTOFromJson(
         : FirebaseNotificationDTO.fromJson(
             json['notification'] as Map<String, dynamic>),
     to: json['to'] as String?,
+    condition: json['condition'] as String?,
     priority: json['priority'] as String?,
   );
 }
@@ -27,5 +28,6 @@ Map<String, dynamic> _$$_NotificationInfoDTOToJson(
     <String, dynamic>{
       'notification': instance.notification?.toJson(),
       'to': instance.to,
+      'condition': instance.condition,
       'priority': instance.priority,
     };

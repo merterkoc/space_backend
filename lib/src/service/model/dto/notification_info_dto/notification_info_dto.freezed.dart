@@ -25,6 +25,8 @@ mixin _$NotificationInfoDTO {
       throw _privateConstructorUsedError;
   @JsonKey(name: 'to')
   String? get to => throw _privateConstructorUsedError;
+  @JsonKey(name: 'condition')
+  String? get condition => throw _privateConstructorUsedError;
   @JsonKey(name: 'priority')
   String? get priority => throw _privateConstructorUsedError;
 
@@ -44,6 +46,7 @@ abstract class $NotificationInfoDTOCopyWith<$Res> {
       {@JsonKey(name: 'notification', required: true)
       FirebaseNotificationDTO? notification,
       @JsonKey(name: 'to') String? to,
+      @JsonKey(name: 'condition') String? condition,
       @JsonKey(name: 'priority') String? priority});
 
   $FirebaseNotificationDTOCopyWith<$Res>? get notification;
@@ -64,6 +67,7 @@ class _$NotificationInfoDTOCopyWithImpl<$Res, $Val extends NotificationInfoDTO>
   $Res call({
     Object? notification = freezed,
     Object? to = freezed,
+    Object? condition = freezed,
     Object? priority = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,6 +78,10 @@ class _$NotificationInfoDTOCopyWithImpl<$Res, $Val extends NotificationInfoDTO>
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      condition: freezed == condition
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
               as String?,
       priority: freezed == priority
           ? _value.priority
@@ -108,6 +116,7 @@ abstract class _$$_NotificationInfoDTOCopyWith<$Res>
       {@JsonKey(name: 'notification', required: true)
       FirebaseNotificationDTO? notification,
       @JsonKey(name: 'to') String? to,
+      @JsonKey(name: 'condition') String? condition,
       @JsonKey(name: 'priority') String? priority});
 
   @override
@@ -127,6 +136,7 @@ class __$$_NotificationInfoDTOCopyWithImpl<$Res>
   $Res call({
     Object? notification = freezed,
     Object? to = freezed,
+    Object? condition = freezed,
     Object? priority = freezed,
   }) {
     return _then(_$_NotificationInfoDTO(
@@ -137,6 +147,10 @@ class __$$_NotificationInfoDTOCopyWithImpl<$Res>
       to: freezed == to
           ? _value.to
           : to // ignore: cast_nullable_to_non_nullable
+              as String?,
+      condition: freezed == condition
+          ? _value.condition
+          : condition // ignore: cast_nullable_to_non_nullable
               as String?,
       priority: freezed == priority
           ? _value.priority
@@ -153,6 +167,7 @@ class _$_NotificationInfoDTO implements _NotificationInfoDTO {
   _$_NotificationInfoDTO(
       {@JsonKey(name: 'notification', required: true) this.notification,
       @JsonKey(name: 'to') this.to,
+      @JsonKey(name: 'condition') this.condition,
       @JsonKey(name: 'priority') this.priority});
 
   factory _$_NotificationInfoDTO.fromJson(Map<String, dynamic> json) =>
@@ -165,12 +180,15 @@ class _$_NotificationInfoDTO implements _NotificationInfoDTO {
   @JsonKey(name: 'to')
   final String? to;
   @override
+  @JsonKey(name: 'condition')
+  final String? condition;
+  @override
   @JsonKey(name: 'priority')
   final String? priority;
 
   @override
   String toString() {
-    return 'NotificationInfoDTO(notification: $notification, to: $to, priority: $priority)';
+    return 'NotificationInfoDTO(notification: $notification, to: $to, condition: $condition, priority: $priority)';
   }
 
   @override
@@ -181,13 +199,16 @@ class _$_NotificationInfoDTO implements _NotificationInfoDTO {
             (identical(other.notification, notification) ||
                 other.notification == notification) &&
             (identical(other.to, to) || other.to == to) &&
+            (identical(other.condition, condition) ||
+                other.condition == condition) &&
             (identical(other.priority, priority) ||
                 other.priority == priority));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, notification, to, priority);
+  int get hashCode =>
+      Object.hash(runtimeType, notification, to, condition, priority);
 
   @JsonKey(ignore: true)
   @override
@@ -209,6 +230,7 @@ abstract class _NotificationInfoDTO implements NotificationInfoDTO {
           {@JsonKey(name: 'notification', required: true)
           final FirebaseNotificationDTO? notification,
           @JsonKey(name: 'to') final String? to,
+          @JsonKey(name: 'condition') final String? condition,
           @JsonKey(name: 'priority') final String? priority}) =
       _$_NotificationInfoDTO;
 
@@ -221,6 +243,9 @@ abstract class _NotificationInfoDTO implements NotificationInfoDTO {
   @override
   @JsonKey(name: 'to')
   String? get to;
+  @override
+  @JsonKey(name: 'condition')
+  String? get condition;
   @override
   @JsonKey(name: 'priority')
   String? get priority;

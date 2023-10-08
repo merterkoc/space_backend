@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-
 import 'package:space_backend/src/core/dio/http_handler/default_http_handler.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 

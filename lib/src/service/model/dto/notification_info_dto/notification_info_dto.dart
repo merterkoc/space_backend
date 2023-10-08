@@ -13,6 +13,7 @@ class NotificationInfoDTO with _$NotificationInfoDTO {
     @JsonKey(name: 'notification', required: true)
     FirebaseNotificationDTO? notification,
     @JsonKey(name: 'to') String? to,
+    @JsonKey(name: 'condition') String? condition,
     @JsonKey(name: 'priority') String? priority,
   }) = _NotificationInfoDTO;
 
