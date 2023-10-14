@@ -4,6 +4,7 @@ import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/base_repository/base_repository.dart';
 import 'package:space_backend/src/service/model/entity/astronomic_event_entity/astronomic_event_entity.dart';
+import 'package:space_backend/src/util/exception/custom_exception.dart';
 
 class AstronomicEventRepository with BaseRepository {
   Future<ResponseEntity<T>> saveAstronomicEvent<T>(
@@ -59,6 +60,9 @@ class AstronomicEventRepository with BaseRepository {
   Future<ResponseEntity<Map<String, dynamic>>> getAstronomicEventById(
     String id,
   ) async {
+    if (!ObjectId.isValidHexId(id)) {
+      throw InvalidIdException();
+    }
     final result = await mongoClient.findOne(
       'astronomic_event',
       where.id(ObjectId.parse(id)),

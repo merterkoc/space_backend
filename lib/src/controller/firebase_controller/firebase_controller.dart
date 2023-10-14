@@ -11,7 +11,7 @@ class FirebaseController {
     try {
       data = NotificationInfoDTO.fromJson(body as Map<String, dynamic>);
     } catch (e) {
-      return Response().badRequest('JSON parse error: $e');
+      return Response().badRequest(message: 'JSON parse error: $e');
     }
     final response =
         await FirebaseRepository().sendNotification<Map<String, dynamic>>(data);

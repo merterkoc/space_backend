@@ -40,4 +40,23 @@ class NotificationRepository with BaseRepository {
       message: notificationResult.errmsg,
     );
   }
+
+  Future<ResponseEntity<T>> getNotificationsByAstronomicEventId<T>(
+    String astronomicEventId,
+  ) async {
+    final result = await mongoClient.find(
+      'notification',
+      filter: SelectorBuilder()..eq('eventId', astronomicEventId),
+    );
+    final newResult = result.map((e) {
+      e
+        ..remove('createdAt')
+        ..remove('updatedAt');
+      return e;
+    }).toList();
+    return ResponseEntity(
+      statusCode: 200,
+      data: newResult as T,
+    );
+  }
 }

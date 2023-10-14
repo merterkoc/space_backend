@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'astronomic_event_dto.dart';
+part of 'astronomic_event_detail_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
+_$_AstronomicEventDetailDTO _$$_AstronomicEventDetailDTOFromJson(
     Map<String, dynamic> json) {
   $checkKeys(
     json,
@@ -18,8 +18,11 @@ _$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
       'coordinate'
     ],
   );
-  return _$_AstronomicEventDTO(
+  return _$_AstronomicEventDetailDTO(
     id: MongoHelper.getObjectId(json['_id'] as ObjectId),
+    notification: (json['notification'] as List<dynamic>)
+        .map((e) => NotificationDTO.fromJson(e as Map<String, dynamic>))
+        .toList(),
     name: json['name'] as String?,
     description: json['description'] as String?,
     startDate: json['start_date'] == null
@@ -36,10 +39,11 @@ _$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
   );
 }
 
-Map<String, dynamic> _$$_AstronomicEventDTOToJson(
-        _$_AstronomicEventDTO instance) =>
+Map<String, dynamic> _$$_AstronomicEventDetailDTOToJson(
+        _$_AstronomicEventDetailDTO instance) =>
     <String, dynamic>{
       '_id': instance.id,
+      'notification': instance.notification.map((e) => e.toJson()).toList(),
       'name': instance.name,
       'description': instance.description,
       'start_date': instance.startDate?.toIso8601String(),

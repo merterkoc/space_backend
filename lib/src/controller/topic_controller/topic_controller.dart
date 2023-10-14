@@ -12,7 +12,7 @@ class TopicController {
     try {
       data = TopicDTO.fromJson(body as Map<String, dynamic>);
     } catch (e) {
-      return Response().badRequest('JSON parse error: $e');
+      return Response().badRequest(message: 'JSON parse error: $e');
     }
 
     final response =

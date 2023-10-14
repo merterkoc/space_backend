@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/service/model/dto/coordinate_dto/coordinate_dto.dart';
+import 'package:space_backend/src/util/helper/mongo_helper.dart';
 
 part 'astronomic_event_entity.freezed.dart';
 
@@ -10,7 +12,14 @@ part 'astronomic_event_entity.g.dart';
 class AstronomicEventEntity with _$AstronomicEventEntity {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventEntity({
-    @JsonKey(name: 'notification') required List<String> notification,
+    @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+    required String? id,
+    @JsonKey(
+      name: 'notification',
+      required: false,
+      fromJson: MongoHelper.getObjectIdList,
+    )
+    List<String>? notification,
     @JsonKey(name: 'name', required: true) String? name,
     @JsonKey(name: 'description', required: true) String? description,
     @JsonKey(name: 'start_date', required: true) DateTime? startDate,

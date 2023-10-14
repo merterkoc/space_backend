@@ -21,8 +21,13 @@ AstronomicEventEntity _$AstronomicEventEntityFromJson(
 
 /// @nodoc
 mixin _$AstronomicEventEntity {
-  @JsonKey(name: 'notification')
-  List<String> get notification => throw _privateConstructorUsedError;
+  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  String? get id => throw _privateConstructorUsedError;
+  @JsonKey(
+      name: 'notification',
+      required: false,
+      fromJson: MongoHelper.getObjectIdList)
+  List<String>? get notification => throw _privateConstructorUsedError;
   @JsonKey(name: 'name', required: true)
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description', required: true)
@@ -51,7 +56,12 @@ abstract class $AstronomicEventEntityCopyWith<$Res> {
       _$AstronomicEventEntityCopyWithImpl<$Res, AstronomicEventEntity>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'notification') List<String> notification,
+      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      @JsonKey(
+          name: 'notification',
+          required: false,
+          fromJson: MongoHelper.getObjectIdList)
+      List<String>? notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
@@ -77,7 +87,8 @@ class _$AstronomicEventEntityCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notification = null,
+    Object? id = freezed,
+    Object? notification = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? startDate = freezed,
@@ -87,10 +98,14 @@ class _$AstronomicEventEntityCopyWithImpl<$Res,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
-      notification: null == notification
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      notification: freezed == notification
           ? _value.notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -144,7 +159,12 @@ abstract class _$$_AstronomicEventEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'notification') List<String> notification,
+      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      @JsonKey(
+          name: 'notification',
+          required: false,
+          fromJson: MongoHelper.getObjectIdList)
+      List<String>? notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
@@ -168,7 +188,8 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? notification = null,
+    Object? id = freezed,
+    Object? notification = freezed,
     Object? name = freezed,
     Object? description = freezed,
     Object? startDate = freezed,
@@ -178,10 +199,14 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
     Object? image = freezed,
   }) {
     return _then(_$_AstronomicEventEntity(
-      notification: null == notification
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      notification: freezed == notification
           ? _value._notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -219,7 +244,13 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, createToJson: true)
 class _$_AstronomicEventEntity implements _AstronomicEventEntity {
   _$_AstronomicEventEntity(
-      {@JsonKey(name: 'notification') required final List<String> notification,
+      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+      required this.id,
+      @JsonKey(
+          name: 'notification',
+          required: false,
+          fromJson: MongoHelper.getObjectIdList)
+      final List<String>? notification,
       @JsonKey(name: 'name', required: true) this.name,
       @JsonKey(name: 'description', required: true) this.description,
       @JsonKey(name: 'start_date', required: true) this.startDate,
@@ -233,13 +264,21 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
   factory _$_AstronomicEventEntity.fromJson(Map<String, dynamic> json) =>
       _$$_AstronomicEventEntityFromJson(json);
 
-  final List<String> _notification;
   @override
-  @JsonKey(name: 'notification')
-  List<String> get notification {
+  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  final String? id;
+  final List<String>? _notification;
+  @override
+  @JsonKey(
+      name: 'notification',
+      required: false,
+      fromJson: MongoHelper.getObjectIdList)
+  List<String>? get notification {
+    final value = _notification;
+    if (value == null) return null;
     if (_notification is EqualUnmodifiableListView) return _notification;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_notification);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -273,7 +312,7 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
   @override
   String toString() {
-    return 'AstronomicEventEntity(notification: $notification, name: $name, description: $description, startDate: $startDate, endDate: $endDate, coordinate: $coordinate, type: $type, image: $image)';
+    return 'AstronomicEventEntity(id: $id, notification: $notification, name: $name, description: $description, startDate: $startDate, endDate: $endDate, coordinate: $coordinate, type: $type, image: $image)';
   }
 
   @override
@@ -281,6 +320,7 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AstronomicEventEntity &&
+            (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other._notification, _notification) &&
             (identical(other.name, name) || other.name == name) &&
@@ -299,6 +339,7 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      id,
       const DeepCollectionEquality().hash(_notification),
       name,
       description,
@@ -325,7 +366,13 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
 abstract class _AstronomicEventEntity implements AstronomicEventEntity {
   factory _AstronomicEventEntity(
-      {@JsonKey(name: 'notification') required final List<String> notification,
+      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+      required final String? id,
+      @JsonKey(
+          name: 'notification',
+          required: false,
+          fromJson: MongoHelper.getObjectIdList)
+      final List<String>? notification,
       @JsonKey(name: 'name', required: true) final String? name,
       @JsonKey(name: 'description', required: true) final String? description,
       @JsonKey(name: 'start_date', required: true) final DateTime? startDate,
@@ -340,8 +387,14 @@ abstract class _AstronomicEventEntity implements AstronomicEventEntity {
       _$_AstronomicEventEntity.fromJson;
 
   @override
-  @JsonKey(name: 'notification')
-  List<String> get notification;
+  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  String? get id;
+  @override
+  @JsonKey(
+      name: 'notification',
+      required: false,
+      fromJson: MongoHelper.getObjectIdList)
+  List<String>? get notification;
   @override
   @JsonKey(name: 'name', required: true)
   String? get name;

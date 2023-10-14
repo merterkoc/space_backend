@@ -11,7 +11,7 @@ class UserController {
     try {
       data = UserDeviceDTO.fromJson(body as Map<String, dynamic>);
     } catch (e) {
-      return Response().badRequest('JSON parse error: $e');
+      return Response().badRequest(message: 'JSON parse error: $e');
     }
 
     final response = await UserRepository().postUserDevice<dynamic>(data);

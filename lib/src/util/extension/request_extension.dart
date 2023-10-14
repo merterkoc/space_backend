@@ -14,7 +14,7 @@ extension ResponseExtensions on Response {
     );
   }
 
-  Response badRequest(String message) {
+  Response badRequest({String message = 'Bad request'}) {
     return Response.json(
       statusCode: 400,
       body: {
@@ -37,10 +37,12 @@ extension ResponseExtensions on Response {
     );
   }
 
-  Response notFound({dynamic body}) {
+  Response notFound({String message = 'Not found'}) {
     return Response.json(
       statusCode: 404,
-      body: body,
+      body: {
+        'message': message,
+      },
     );
   }
 
@@ -51,6 +53,13 @@ extension ResponseExtensions on Response {
         'message': 'Method ${context.request.method} not allowed',
         'path': context.request.uri.path,
       },
+    );
+  }
+
+  Response unknownError({String? body}) {
+    return Response.json(
+      statusCode: 500,
+      body: body,
     );
   }
 }

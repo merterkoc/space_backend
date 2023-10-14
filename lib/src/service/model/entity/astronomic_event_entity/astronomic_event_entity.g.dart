@@ -19,9 +19,8 @@ _$_AstronomicEventEntity _$$_AstronomicEventEntityFromJson(
     ],
   );
   return _$_AstronomicEventEntity(
-    notification: (json['notification'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList(),
+    id: MongoHelper.getObjectId(json['_id'] as ObjectId),
+    notification: MongoHelper.getObjectIdList(json['notification'] as List?),
     name: json['name'] as String?,
     description: json['description'] as String?,
     startDate: json['start_date'] == null
@@ -41,6 +40,7 @@ _$_AstronomicEventEntity _$$_AstronomicEventEntityFromJson(
 Map<String, dynamic> _$$_AstronomicEventEntityToJson(
         _$_AstronomicEventEntity instance) =>
     <String, dynamic>{
+      '_id': instance.id,
       'notification': instance.notification,
       'name': instance.name,
       'description': instance.description,

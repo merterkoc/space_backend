@@ -1,11 +1,12 @@
-import 'package:space_backend/src/service/model/dto/astronomic_event_dto/astronomic_event_dto.dart';
+import 'package:space_backend/src/service/model/dto/astronomic_event_detail_dto/astronomic_event_detail_dto.dart';
+import 'package:space_backend/src/service/model/dto/notification_dto/notification_dto.dart';
 import 'package:space_backend/src/service/model/entity/astronomic_event_entity/astronomic_event_entity.dart';
 import 'package:space_backend/src/util/mapper/mapper.dart';
 
-class AstronomicEventMapper
-    with Mapper<AstronomicEventDTO, AstronomicEventEntity> {
+class AstronomicEventDetailMapper
+    with Mapper<AstronomicEventDetailDTO, AstronomicEventEntity> {
   @override
-  AstronomicEventEntity call(AstronomicEventDTO object) {
+  AstronomicEventEntity call(AstronomicEventDetailDTO object) {
     return AstronomicEventEntity(
       id: object.id,
       name: object.name,
@@ -20,8 +21,11 @@ class AstronomicEventMapper
   }
 
   @override
-  AstronomicEventDTO from(AstronomicEventEntity object) {
-    return AstronomicEventDTO(
+  AstronomicEventDetailDTO from(
+    AstronomicEventEntity object, {
+    List<NotificationDTO>? notificationDTO,
+  }) {
+    return AstronomicEventDetailDTO(
       id: object.id,
       name: object.name,
       description: object.description,
@@ -30,6 +34,7 @@ class AstronomicEventMapper
       coordinate: object.coordinate,
       type: object.type,
       image: object.image,
+      notification: notificationDTO ?? const [],
     );
   }
 }
