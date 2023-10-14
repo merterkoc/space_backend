@@ -19,7 +19,7 @@ _$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
     ],
   );
   return _$_AstronomicEventDTO(
-    id: MongoHelper.getObjectId(json['_id'] as ObjectId),
+    id: MongoHelper.getObjectId(json['id'] as ObjectId),
     name: json['name'] as String?,
     description: json['description'] as String?,
     startDate: json['start_date'] == null
@@ -39,7 +39,7 @@ _$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
 Map<String, dynamic> _$$_AstronomicEventDTOToJson(
         _$_AstronomicEventDTO instance) =>
     <String, dynamic>{
-      '_id': instance.id,
+      'id': instance.id,
       'name': instance.name,
       'description': instance.description,
       'start_date': instance.startDate?.toIso8601String(),

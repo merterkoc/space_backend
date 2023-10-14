@@ -15,7 +15,7 @@ class AstronomicEventDTO with _$AstronomicEventDTO {
     createToJson: true,
   )
   factory AstronomicEventDTO({
-    @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+    @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
     required String? id,
     @JsonKey(name: 'name', required: true) String? name,
     @JsonKey(name: 'description', required: true) String? description,

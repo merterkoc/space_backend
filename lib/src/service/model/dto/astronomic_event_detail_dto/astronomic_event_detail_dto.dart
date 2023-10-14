@@ -13,7 +13,7 @@ part 'astronomic_event_detail_dto.g.dart';
 class AstronomicEventDetailDTO with _$AstronomicEventDetailDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventDetailDTO({
-    @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+    @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
     required String? id,
     @JsonKey(name: 'notification') required List<NotificationDTO> notification,
     @JsonKey(name: 'name', required: true) String? name,

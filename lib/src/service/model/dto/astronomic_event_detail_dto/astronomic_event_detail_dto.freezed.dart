@@ -21,7 +21,7 @@ AstronomicEventDetailDTO _$AstronomicEventDetailDTOFromJson(
 
 /// @nodoc
 mixin _$AstronomicEventDetailDTO {
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'notification')
   List<NotificationDTO> get notification => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $AstronomicEventDetailDTOCopyWith<$Res> {
       _$AstronomicEventDetailDTOCopyWithImpl<$Res, AstronomicEventDetailDTO>;
   @useResult
   $Res call(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      {@JsonKey(name: 'id', fromJson: MongoHelper.getObjectId) String? id,
       @JsonKey(name: 'notification') List<NotificationDTO> notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
@@ -153,7 +153,7 @@ abstract class _$$_AstronomicEventDetailDTOCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      {@JsonKey(name: 'id', fromJson: MongoHelper.getObjectId) String? id,
       @JsonKey(name: 'notification') List<NotificationDTO> notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
@@ -235,8 +235,7 @@ class __$$_AstronomicEventDetailDTOCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, createToJson: true)
 class _$_AstronomicEventDetailDTO implements _AstronomicEventDetailDTO {
   _$_AstronomicEventDetailDTO(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
-      required this.id,
+      {@JsonKey(name: 'id', fromJson: MongoHelper.getObjectId) required this.id,
       @JsonKey(name: 'notification')
       required final List<NotificationDTO> notification,
       @JsonKey(name: 'name', required: true) this.name,
@@ -253,7 +252,7 @@ class _$_AstronomicEventDetailDTO implements _AstronomicEventDetailDTO {
       _$$_AstronomicEventDetailDTOFromJson(json);
 
   @override
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
   final String? id;
   final List<NotificationDTO> _notification;
   @override
@@ -349,7 +348,7 @@ class _$_AstronomicEventDetailDTO implements _AstronomicEventDetailDTO {
 
 abstract class _AstronomicEventDetailDTO implements AstronomicEventDetailDTO {
   factory _AstronomicEventDetailDTO(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+      {@JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
       required final String? id,
       @JsonKey(name: 'notification')
       required final List<NotificationDTO> notification,
@@ -367,7 +366,7 @@ abstract class _AstronomicEventDetailDTO implements AstronomicEventDetailDTO {
       _$_AstronomicEventDetailDTO.fromJson;
 
   @override
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
   String? get id;
   @override
   @JsonKey(name: 'notification')
