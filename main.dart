@@ -12,9 +12,8 @@ Future<void> init(InternetAddress ip, int port) async {
   await initializeMongo();
 }
 
-
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {
-  return serve(handler, ip, port);
+  return serve(handler, ip, PlatformEnvironment.portInt);
 }
 
 Future<void> initializeMongo() async {

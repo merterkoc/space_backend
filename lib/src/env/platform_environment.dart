@@ -7,6 +7,8 @@ mixin PlatformEnvironment {
 
   static String? get port => Platform.environment[_port];
 
+  static int get portInt => int.tryParse(port ?? '8080') ?? 8080;
+
   static String get serverKey {
     final serverKey = Platform.environment[_serverKey];
     if (serverKey == null) {
