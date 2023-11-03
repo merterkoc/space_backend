@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
@@ -9,7 +10,7 @@ Future<void> init(InternetAddress ip, int port) async {
   final ip = InternetAddress.anyIPv4;
   final port = int.tryParse(PlatformEnvironment.port ?? '8080') ?? 8080;
   logger.i('Server started on port $port, ip $ip');
-  //await initializeMongo();
+  unawaited(initializeMongo());
 }
 
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {
