@@ -9,7 +9,7 @@ Future<void> init(InternetAddress ip, int port) async {
   final ip = InternetAddress.anyIPv4;
   final port = int.tryParse(PlatformEnvironment.port ?? '8080') ?? 8080;
   logger.i('Server started on port $port, ip $ip');
-  await initializeMongo();
+  //await initializeMongo();
 }
 
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {
