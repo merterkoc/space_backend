@@ -19,7 +19,7 @@ _$_AstronomicEventDTO _$$_AstronomicEventDTOFromJson(
     ],
   );
   return _$_AstronomicEventDTO(
-    id: MongoHelper.getObjectId(json['id'] as ObjectId),
+    id: MongoHelper.getObjectId(json['id'] as ObjectId?),
     name: json['name'] as String?,
     description: json['description'] as String?,
     startDate: json['start_date'] == null

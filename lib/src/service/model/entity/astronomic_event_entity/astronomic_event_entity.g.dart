@@ -17,9 +17,10 @@ _$_AstronomicEventEntity _$$_AstronomicEventEntityFromJson(
       'end_date',
       'coordinate'
     ],
+    disallowNullValues: const ['_id', 'notification'],
   );
   return _$_AstronomicEventEntity(
-    id: MongoHelper.getObjectId(json['_id'] as ObjectId),
+    id: MongoHelper.getObjectId(json['_id'] as ObjectId?),
     notification: MongoHelper.getObjectIdList(json['notification'] as List?),
     name: json['name'] as String?,
     description: json['description'] as String?,
@@ -38,15 +39,23 @@ _$_AstronomicEventEntity _$$_AstronomicEventEntityFromJson(
 }
 
 Map<String, dynamic> _$$_AstronomicEventEntityToJson(
-        _$_AstronomicEventEntity instance) =>
-    <String, dynamic>{
-      '_id': instance.id,
-      'notification': instance.notification,
-      'name': instance.name,
-      'description': instance.description,
-      'start_date': instance.startDate?.toIso8601String(),
-      'end_date': instance.endDate?.toIso8601String(),
-      'coordinate': instance.coordinate?.toJson(),
-      'type': instance.type,
-      'image': instance.image,
-    };
+    _$_AstronomicEventEntity instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('_id', instance.id);
+  writeNotNull('notification', instance.notification);
+  val['name'] = instance.name;
+  val['description'] = instance.description;
+  val['start_date'] = instance.startDate?.toIso8601String();
+  val['end_date'] = instance.endDate?.toIso8601String();
+  val['coordinate'] = instance.coordinate?.toJson();
+  val['type'] = instance.type;
+  val['image'] = instance.image;
+  return val;
+}

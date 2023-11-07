@@ -19,7 +19,7 @@ _$_AstronomicEventDetailDTO _$$_AstronomicEventDetailDTOFromJson(
     ],
   );
   return _$_AstronomicEventDetailDTO(
-    id: MongoHelper.getObjectId(json['id'] as ObjectId),
+    id: MongoHelper.getObjectId(json['id'] as ObjectId?),
     notification: (json['notification'] as List<dynamic>)
         .map((e) => NotificationDTO.fromJson(e as Map<String, dynamic>))
         .toList(),

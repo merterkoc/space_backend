@@ -21,13 +21,18 @@ AstronomicEventEntity _$AstronomicEventEntityFromJson(
 
 /// @nodoc
 mixin _$AstronomicEventEntity {
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(
+      name: '_id',
+      fromJson: MongoHelper.getObjectId,
+      disallowNullValue: true,
+      required: false)
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(
       name: 'notification',
       required: false,
-      fromJson: MongoHelper.getObjectIdList)
-  List<String>? get notification => throw _privateConstructorUsedError;
+      fromJson: MongoHelper.getObjectIdList,
+      disallowNullValue: true)
+  List<String?>? get notification => throw _privateConstructorUsedError;
   @JsonKey(name: 'name', required: true)
   String? get name => throw _privateConstructorUsedError;
   @JsonKey(name: 'description', required: true)
@@ -56,12 +61,18 @@ abstract class $AstronomicEventEntityCopyWith<$Res> {
       _$AstronomicEventEntityCopyWithImpl<$Res, AstronomicEventEntity>;
   @useResult
   $Res call(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      {@JsonKey(
+          name: '_id',
+          fromJson: MongoHelper.getObjectId,
+          disallowNullValue: true,
+          required: false)
+      String? id,
       @JsonKey(
           name: 'notification',
           required: false,
-          fromJson: MongoHelper.getObjectIdList)
-      List<String>? notification,
+          fromJson: MongoHelper.getObjectIdList,
+          disallowNullValue: true)
+      List<String?>? notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
@@ -105,7 +116,7 @@ class _$AstronomicEventEntityCopyWithImpl<$Res,
       notification: freezed == notification
           ? _value.notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<String?>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -159,12 +170,18 @@ abstract class _$$_AstronomicEventEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId) String? id,
+      {@JsonKey(
+          name: '_id',
+          fromJson: MongoHelper.getObjectId,
+          disallowNullValue: true,
+          required: false)
+      String? id,
       @JsonKey(
           name: 'notification',
           required: false,
-          fromJson: MongoHelper.getObjectIdList)
-      List<String>? notification,
+          fromJson: MongoHelper.getObjectIdList,
+          disallowNullValue: true)
+      List<String?>? notification,
       @JsonKey(name: 'name', required: true) String? name,
       @JsonKey(name: 'description', required: true) String? description,
       @JsonKey(name: 'start_date', required: true) DateTime? startDate,
@@ -206,7 +223,7 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
       notification: freezed == notification
           ? _value._notification
           : notification // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+              as List<String?>?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -244,13 +261,18 @@ class __$$_AstronomicEventEntityCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, createToJson: true)
 class _$_AstronomicEventEntity implements _AstronomicEventEntity {
   _$_AstronomicEventEntity(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
-      required this.id,
+      {@JsonKey(
+          name: '_id',
+          fromJson: MongoHelper.getObjectId,
+          disallowNullValue: true,
+          required: false)
+      this.id,
       @JsonKey(
           name: 'notification',
           required: false,
-          fromJson: MongoHelper.getObjectIdList)
-      final List<String>? notification,
+          fromJson: MongoHelper.getObjectIdList,
+          disallowNullValue: true)
+      final List<String?>? notification,
       @JsonKey(name: 'name', required: true) this.name,
       @JsonKey(name: 'description', required: true) this.description,
       @JsonKey(name: 'start_date', required: true) this.startDate,
@@ -265,15 +287,20 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
       _$$_AstronomicEventEntityFromJson(json);
 
   @override
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(
+      name: '_id',
+      fromJson: MongoHelper.getObjectId,
+      disallowNullValue: true,
+      required: false)
   final String? id;
-  final List<String>? _notification;
+  final List<String?>? _notification;
   @override
   @JsonKey(
       name: 'notification',
       required: false,
-      fromJson: MongoHelper.getObjectIdList)
-  List<String>? get notification {
+      fromJson: MongoHelper.getObjectIdList,
+      disallowNullValue: true)
+  List<String?>? get notification {
     final value = _notification;
     if (value == null) return null;
     if (_notification is EqualUnmodifiableListView) return _notification;
@@ -366,13 +393,18 @@ class _$_AstronomicEventEntity implements _AstronomicEventEntity {
 
 abstract class _AstronomicEventEntity implements AstronomicEventEntity {
   factory _AstronomicEventEntity(
-      {@JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
-      required final String? id,
+      {@JsonKey(
+          name: '_id',
+          fromJson: MongoHelper.getObjectId,
+          disallowNullValue: true,
+          required: false)
+      final String? id,
       @JsonKey(
           name: 'notification',
           required: false,
-          fromJson: MongoHelper.getObjectIdList)
-      final List<String>? notification,
+          fromJson: MongoHelper.getObjectIdList,
+          disallowNullValue: true)
+      final List<String?>? notification,
       @JsonKey(name: 'name', required: true) final String? name,
       @JsonKey(name: 'description', required: true) final String? description,
       @JsonKey(name: 'start_date', required: true) final DateTime? startDate,
@@ -387,14 +419,19 @@ abstract class _AstronomicEventEntity implements AstronomicEventEntity {
       _$_AstronomicEventEntity.fromJson;
 
   @override
-  @JsonKey(name: '_id', fromJson: MongoHelper.getObjectId)
+  @JsonKey(
+      name: '_id',
+      fromJson: MongoHelper.getObjectId,
+      disallowNullValue: true,
+      required: false)
   String? get id;
   @override
   @JsonKey(
       name: 'notification',
       required: false,
-      fromJson: MongoHelper.getObjectIdList)
-  List<String>? get notification;
+      fromJson: MongoHelper.getObjectIdList,
+      disallowNullValue: true)
+  List<String?>? get notification;
   @override
   @JsonKey(name: 'name', required: true)
   String? get name;
