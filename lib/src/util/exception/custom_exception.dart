@@ -26,4 +26,3 @@ class JsonParseException extends CustomException {
   @override
   String get message => 'JSON parse error';
 }
-

@@ -16,9 +16,9 @@ class AstronomicEventEntity with _$AstronomicEventEntity {
       name: '_id',
       fromJson: MongoHelper.getObjectId,
       disallowNullValue: true,
-      required: false
+      required: false,
     )
-     String? id,
+    String? id,
     @JsonKey(
       name: 'notification',
       required: false,
