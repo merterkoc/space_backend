@@ -15,3 +15,7 @@ coverage/
 # Custom ignored
 .idea/
 .idea/libraries/Dart_Packages.xml
+
+# Dart files
+**.freezed.dart
+**.g.dart
