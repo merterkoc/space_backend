@@ -9,7 +9,6 @@ class NotificationMapper with Mapper<NotificationDTO, NotificationEntity> {
       eventId: object.eventId!,
       title: object.title,
       body: object.body,
-      topics: object.topics ?? [],
       sent: object.sent,
     );
   }
@@ -20,7 +19,6 @@ class NotificationMapper with Mapper<NotificationDTO, NotificationEntity> {
       eventId: object.eventId,
       title: object.title,
       body: object.body,
-      topics: object.topics,
       sent: object.sent,
     );
   }

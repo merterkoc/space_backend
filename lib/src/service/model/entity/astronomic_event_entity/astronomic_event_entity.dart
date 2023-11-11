@@ -12,6 +12,7 @@ part 'astronomic_event_entity.g.dart';
 class AstronomicEventEntity with _$AstronomicEventEntity {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory AstronomicEventEntity({
+    @JsonKey(name: 'topics') List<String>? topics,
     @JsonKey(
       name: '_id',
       fromJson: MongoHelper.getObjectId,
@@ -31,7 +32,7 @@ class AstronomicEventEntity with _$AstronomicEventEntity {
     @JsonKey(name: 'start_date', required: true) DateTime? startDate,
     @JsonKey(name: 'end_date', required: true) DateTime? endDate,
     @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
-    @JsonKey(name: 'type') String? type,
+    @JsonKey(name: 'type', disallowNullValue: false) String? type,
     @JsonKey(name: 'image') List<String>? image,
   }) = _AstronomicEventEntity;
 

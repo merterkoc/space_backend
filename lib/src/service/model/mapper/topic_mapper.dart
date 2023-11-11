@@ -13,6 +13,9 @@ class TopicMapper with Mapper<TopicDTO, TopicEntity> {
 
   @override
   TopicDTO from(TopicEntity object) {
-    throw UnimplementedError();
+    return TopicDTO(
+      key: object.key,
+      coordinate: object.coordinate,
+    );
   }
 }

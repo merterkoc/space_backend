@@ -16,6 +16,7 @@ class AstronomicEventMapper
       type: object.type,
       image: object.image,
       notification: const [],
+      topics: object.topics ?? const [],
     );
   }
 
@@ -31,5 +32,10 @@ class AstronomicEventMapper
       type: object.type,
       image: object.image,
     );
+  }
+
+  Iterable fromList(List<Map<String, dynamic>> list) {
+    return list.map((e) => from(AstronomicEventEntity.fromJson(e)));
+
   }
 }

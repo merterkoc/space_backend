@@ -21,6 +21,7 @@ class AstronomicEventDTO with _$AstronomicEventDTO {
     @JsonKey(name: 'description', required: true) String? description,
     @JsonKey(name: 'start_date', required: true) DateTime? startDate,
     @JsonKey(name: 'end_date', required: true) DateTime? endDate,
+    @JsonKey(name: 'topics') List<String>? topics,
     @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
     @JsonKey(name: 'type') String? type,
     @JsonKey(name: 'image', required: false) List<String>? image,

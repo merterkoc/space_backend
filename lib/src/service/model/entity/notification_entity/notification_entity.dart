@@ -10,7 +10,6 @@ class NotificationEntity with _$NotificationEntity {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory NotificationEntity({
     @JsonKey(name: 'eventId', required: true) required String eventId,
-    @JsonKey(name: 'topics') required List<String> topics,
     @JsonKey(name: 'sent', required: true, defaultValue: false)
     required bool sent,
     @JsonKey(name: 'title') String? title,

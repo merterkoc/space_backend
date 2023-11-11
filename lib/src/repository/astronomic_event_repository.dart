@@ -21,21 +21,25 @@ class AstronomicEventRepository with BaseRepository {
     );
   }
 
-  Future<ResponseEntity<T>> getAstronomicEvent<T>() async {
+  Future<ResponseEntity<List<AstronomicEventEntity>>>
+      getAstronomicEvent() async {
     final result = await mongoClient.find('astronomic_event');
-    final newResult = result.map((e) {
-      e
-        ..remove('createdAt')
-        ..remove('updatedAt');
-      return e;
-    }).toList();
-    return ResponseEntity(
+    final newResult = List<AstronomicEventEntity>.from(
+      result.map((e) {
+        e
+          ..remove('createdAt')
+          ..remove('updatedAt');
+        return AstronomicEventEntity.fromJson(e);
+      }),
+    );
+
+    return ResponseEntity<List<AstronomicEventEntity>>(
       statusCode: 200,
-      data: newResult as T,
+      data: newResult,
     );
   }
 
-  Future<ResponseEntity<T>> getAstronomicEventList<T>(
+  Future<ResponseEntity<List<AstronomicEventEntity>>> getAstronomicEventList<T>(
     int page,
     int size,
   ) async {
@@ -53,7 +57,36 @@ class AstronomicEventRepository with BaseRepository {
     }).toList();
     return ResponseEntity(
       statusCode: 200,
-      data: newResult as T,
+      data: List<AstronomicEventEntity>.from(
+        newResult.map(AstronomicEventEntity.fromJson),
+      ),
+    );
+  }
+
+  Future<ResponseEntity<List<AstronomicEventEntity>>>
+      getAstronomicEventListByTopic(
+    int page,
+    int size,
+    String topic,
+  ) async {
+    final result = await mongoClient.find(
+      'astronomic_event',
+      filter: SelectorBuilder()
+        ..eq('topics', topic)
+        ..limit(size)
+        ..skip((page - 1) * size),
+    );
+    final newResult = result.map((e) {
+      e
+        ..remove('createdAt')
+        ..remove('updatedAt');
+      return e;
+    }).toList();
+    return ResponseEntity(
+      statusCode: 200,
+      data: List<AstronomicEventEntity>.from(
+        newResult.map(AstronomicEventEntity.fromJson),
+      ),
     );
   }
 

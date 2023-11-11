@@ -13,7 +13,6 @@ class NotificationDTO with _$NotificationDTO {
     @JsonKey(name: 'eventId', required: true) String? eventId,
     @JsonKey(name: 'title', required: true) String? title,
     @JsonKey(name: 'body', required: true) String? body,
-    @JsonKey(name: 'topics') List<String>? topics,
   }) = _NotificationDTO;
 
   factory NotificationDTO.fromJson(Map<String, Object?> json) =>
