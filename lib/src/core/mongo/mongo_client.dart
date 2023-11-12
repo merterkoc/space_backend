@@ -56,6 +56,21 @@ class MongoClient {
     }
   }
 
+  Future<List<Map<String, dynamic>>> findAggregateToStream(
+    String collectionName,
+    List<Map<String, Object>> pipeline,
+  ) async {
+    final db = await mongoDbPoolService.acquire();
+    try {
+      final collection = db.collection(collectionName);
+      return await collection.aggregateToStream(pipeline).toList();
+    } catch (e) {
+      throw Exception(e);
+    } finally {
+      await mongoDbPoolService.release(db);
+    }
+  }
+
   Future<Map<String, dynamic>> updateOneById(
     String collectionName,
     ObjectId id,

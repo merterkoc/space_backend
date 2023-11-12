@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/base_repository/base_repository.dart';
+import 'package:space_backend/src/repository/mongo_pipeline/astronomic_event_pipeline.dart';
 import 'package:space_backend/src/service/model/entity/astronomic_event_entity/astronomic_event_entity.dart';
 import 'package:space_backend/src/util/exception/custom_exception.dart';
 
@@ -69,12 +70,9 @@ class AstronomicEventRepository with BaseRepository {
     int size,
     String topic,
   ) async {
-    final result = await mongoClient.find(
+    final result = await mongoClient.findAggregateToStream(
       'astronomic_event',
-      filter: SelectorBuilder()
-        ..eq('topics', topic)
-        ..limit(size)
-        ..skip((page - 1) * size),
+      AstronomicEventPipeline.findByTopic(topic, page, size),
     );
     final newResult = result.map((e) {
       e

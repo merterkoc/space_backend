@@ -31,11 +31,7 @@ class AstronomicEventMapper
       coordinate: object.coordinate,
       type: object.type,
       image: object.image,
+      topics: object.topics,
     );
-  }
-
-  Iterable fromList(List<Map<String, dynamic>> list) {
-    return list.map((e) => from(AstronomicEventEntity.fromJson(e)));
-
   }
 }
