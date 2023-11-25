@@ -16,12 +16,24 @@ class NotificationController {
       return Response().badRequest(message: 'JSON parse error: $e');
     }
 
+    final astronomicEvent =
+        await AstronomicEventRepository().getAstronomicEventById(data.eventId!);
+    if (astronomicEvent.data == null) {
+      return Response().badRequest(message: 'Astronomic event not found');
+    }
+
     final astronomicEventDTO = AstronomicEventDTO.fromJson(
-      (await AstronomicEventRepository().getAstronomicEventById(data.eventId!))
-          as Map<String, Object?>,
+      astronomicEvent.data!,
     );
+
+    if (astronomicEventDTO.topics == null ||
+        astronomicEventDTO.topics!.isEmpty) {
+      return Response()
+          .badRequest(message: 'Astronomic event topics not found');
+    }
+
     final response = await NotificationService()
-        .saveAndSendNotification(data, astronomicEventDTO);
+        .saveAndSendNotification(data, astronomicEventDTO.topics!);
 
     return Response.json(
       statusCode: response.statusCode,
