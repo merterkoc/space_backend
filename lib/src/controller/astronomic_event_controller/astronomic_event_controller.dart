@@ -1,11 +1,9 @@
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/astronomic_event_repository.dart';
-import 'package:space_backend/src/repository/topic_repository.dart';
 import 'package:space_backend/src/service/astonomic_event_service/astronomic_event_service.dart';
 import 'package:space_backend/src/service/model/dto/astronomic_event_dto/astronomic_event_dto.dart';
 import 'package:space_backend/src/service/model/dto/coordinate_dto/coordinate_dto.dart';
-import 'package:space_backend/src/service/model/dto/topic_dto/topic_dto.dart';
 import 'package:space_backend/src/service/model/mapper/astronomic_event_mapper.dart';
 import 'package:space_backend/src/service/topic_service/topic_service.dart';
 import 'package:space_backend/src/util/exception/custom_exception.dart';
