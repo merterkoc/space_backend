@@ -46,6 +46,17 @@ class AstronomicEventService {
     );
   }
 
+  Future<List<AstronomicEventDTO>> getAstronomicEventList(
+    int page,
+    int size,
+  ) async {
+    final result = await _astronomicEventRepository.getAstronomicEventList(
+      page,
+      size,
+    );
+    return result.data!.map((e) => AstronomicEventMapper().from(e)).toList();
+  }
+
   Future<List<AstronomicEventDTO>> getAstronomicEventListByTopic(
     int page,
     int size,

@@ -40,7 +40,7 @@ class AstronomicEventRepository with BaseRepository {
     );
   }
 
-  Future<ResponseEntity<List<AstronomicEventEntity>>> getAstronomicEventList<T>(
+  Future<ResponseEntity<List<AstronomicEventEntity>>> getAstronomicEventList(
     int page,
     int size,
   ) async {

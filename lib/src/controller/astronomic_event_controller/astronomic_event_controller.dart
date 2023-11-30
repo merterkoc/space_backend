@@ -51,6 +51,18 @@ class AstronomicEventController {
 
   Future<Response> getAllAstronomicEvent(RequestContext context) async {
     final headerCoordinate = context.request.headers['coordinate'];
+
+    if (context.request.uri.path.contains('admin') ||
+        context.request.uri.path.contains('admin') &&
+            headerCoordinate == null) {
+      final result = await _astronomicEventService.getAstronomicEventList(
+        1,
+        10,
+      );
+      return Response().ok(
+        body: result,
+      );
+    }
     if (headerCoordinate == null) {
       return Response().badRequest(message: 'Please send coordinate header');
     }
