@@ -5,7 +5,7 @@ import 'package:space_backend/src/service/model/dto/user_device_dto/user_device_
 class UserRepository with BaseRepository {
   Future<ResponseEntity<T>> postUserDevice<T>(UserDeviceDTO userDevice) async {
     final result = await mongoClient.insertOne(
-      'user',
+      'fcm_token',
       userDevice.toJson(),
     );
     return ResponseEntity(

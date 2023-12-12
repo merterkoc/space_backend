@@ -7,10 +7,12 @@ environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
+  crypto: 3.0.2
   dart_frog: ^1.0.0
   dio: ^5.3.2
   equatable: ^2.0.5
   freezed_annotation: ^2.4.1
+  jaguar_jwt: ^3.0.0
   json_annotation: ^4.8.1
   logger: ^2.0.1
   meta: ^1.9.1

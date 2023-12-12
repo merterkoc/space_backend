@@ -4,6 +4,7 @@ mixin PlatformEnvironment {
   static const String _port = 'PORT';
   static const String _serverKey = 'FIREBASE_SERVER_KEY';
   static const String _mongoUri = 'MONGO_URI';
+  static const String _jwtSecretKey = 'JWT_SECRET_KEY';
 
   static String? get port => Platform.environment[_port];
 
@@ -23,5 +24,13 @@ mixin PlatformEnvironment {
       return 'mongodb://localhost:27017/space';
     }
     return Platform.environment[_mongoUri]!;
+  }
+
+  static String get jwtSecretKey {
+    final jwtSecretKey = Platform.environment[_jwtSecretKey];
+    if (jwtSecretKey == null) {
+      throw Exception('Please set $_jwtSecretKey in .env file');
+    }
+    return Platform.environment[_jwtSecretKey]!;
   }
 }
