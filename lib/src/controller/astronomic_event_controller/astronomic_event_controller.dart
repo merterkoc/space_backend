@@ -88,12 +88,7 @@ class AstronomicEventController {
     );
   }
 
-  @Authority('admin')
   Future<Response> getAstronomicEventList(RequestContext context) async {
-    final isAuthenticated = context.read<bool>();
-    if (!isAuthenticated) {
-      return Response().unauthorized();
-    }
     final size = int.tryParse(context.request.uri.queryParameters['size']!);
     final page = int.tryParse(context.request.uri.queryParameters['page']!);
     final coordinate = context.request.headers['coordinate'];
@@ -150,12 +145,4 @@ class AstronomicEventController {
       body: ResponseEntity.toJson(response),
     );
   }
-}
-
-class Authority {
-  final String role;
-
-  const Authority(this.role);
-
-
 }

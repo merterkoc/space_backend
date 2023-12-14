@@ -18,7 +18,8 @@ class IdentityRepository with BaseRepository {
     }
 
     final user = userEntity.copyWith(
-        password: MongoHelper.hashPassword(userEntity.password));
+      password: MongoHelper.hashPassword(userEntity.password),
+    );
 
     final result = await mongoClient.insertOne(
       'user',

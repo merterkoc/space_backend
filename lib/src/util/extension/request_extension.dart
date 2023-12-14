@@ -32,13 +32,13 @@ extension ResponseExtensions on Response {
     );
   }
 
-  Response unauthorized({dynamic body}) {
+  Response unauthorized({required String message}) {
     return Response.json(
       statusCode: 401,
       body: {
         'failed': true,
         'message': 'Unauthorized',
-        'body': body,
+        'body': message,
       },
     );
   }
