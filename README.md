@@ -33,3 +33,12 @@ An example application built with dart_frog
 13. Run `run` configuration
 14. Open `http://localhost:8080` in browser
 15. Enjoy!
+
+Things to know about the project
+
+* When a new route or middleware is created and removed, the automatically created server file must
+  be recreated with the dart_frog dev command.
+* The project will not run unless shared environment variables are defined.
+  FIREBASE_SERVER_KEY, JWT_SECRET_KEY, MONGO_URI
+* It is important to run script/build_run.sh before running the project.
+* The path to the created server file is: /.dart_frog/server.dart. You can add this path to your run configuration
