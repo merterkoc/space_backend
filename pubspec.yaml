@@ -1,6 +1,6 @@
 name: space_backend
 description: An new Dart Frog application
-version: 0.0.1+25
+version: 0.0.1+26
 publish_to: none
 
 environment:
