@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:space_backend/src/core/dio/model/identity_response_entity.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/identity_repository.dart';
 import 'package:space_backend/src/service/model/dto/user_dto/user_dto.dart';
@@ -34,11 +35,11 @@ class IdentityService {
     return result;
   }
 
-  Future<ResponseEntity<dynamic>> signIn(
+  Future<IdentityResponseEntity<dynamic>> signIn(
     UserDTO userDTO,
   ) async {
     final result = await _identityRepository.signIn<void>(userDTO).onError(
-          (error, stackTrace) => ResponseEntity(
+          (error, stackTrace) => IdentityResponseEntity(
             statusCode: HttpStatus.badRequest,
             message: error.toString(),
           ),

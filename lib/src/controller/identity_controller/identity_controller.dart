@@ -1,4 +1,5 @@
 import 'package:dart_frog/dart_frog.dart';
+import 'package:space_backend/src/core/dio/model/identity_response_entity.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/service/identity_service/identity_service.dart';
 import 'package:space_backend/src/service/model/dto/user_dto/user_dto.dart';
@@ -31,7 +32,7 @@ class IdentityController {
     final response = await IdentityService().signIn(data);
     return Response.json(
       statusCode: response.statusCode,
-      body: ResponseEntity.toJson(response),
+      body: IdentityResponseEntity.toJson(response),
     );
   }
 }
