@@ -478,6 +478,13 @@
             </list>
           </value>
         </entry>
+        <entry key="shelf_cors_headers">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/shelf_cors_headers-0.1.5/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="shelf_hotreload">
           <value>
             <list>
@@ -752,6 +759,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sasl_scram-0.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/saslprep-1.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shelf-1.4.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shelf_cors_headers-0.1.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shelf_hotreload-1.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shelf_packages_handler-3.0.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/shelf_static-1.1.2/lib" />
