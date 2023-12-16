@@ -9,6 +9,10 @@ Handler middleware(Handler handler) {
               ///Handling Cross-Origin Resource Sharing (CORS)
               ///https://dartfrog.vgv.dev/docs/advanced/cors
               shelf.ACCESS_CONTROL_ALLOW_ORIGIN: '*',
+              shelf.ORIGIN: '*',
+              shelf.ACCESS_CONTROL_ALLOW_METHODS: 'GET,PUT,PATCH,POST,DELETE',
+              shelf.ACCESS_CONTROL_ALLOW_HEADERS:
+                  'Origin, X-Requested-With, Content-Type, Accept',
             },
           ),
         ),
