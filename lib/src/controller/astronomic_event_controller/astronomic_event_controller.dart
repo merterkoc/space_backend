@@ -145,4 +145,14 @@ class AstronomicEventController {
       body: ResponseEntity.toJson(response),
     );
   }
+
+  Future<Response> getAstronomicEventCategoryList(
+    RequestContext context,
+  ) async {
+    final result =
+        await _astronomicEventService.getAstronomicEventCategoryList();
+    return Response().ok(
+      body: result,
+    );
+  }
 }

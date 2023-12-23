@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/service/model/dto/coordinate_dto/coordinate_dto.dart';
 import 'package:space_backend/src/service/model/dto/notification_dto/notification_dto.dart';
+import 'package:space_backend/src/service/model/enum/event_category.dart';
 import 'package:space_backend/src/util/helper/mongo_helper.dart';
 
 part 'astronomic_event_detail_dto.freezed.dart';
@@ -29,6 +30,8 @@ class AstronomicEventDetailDTO with _$AstronomicEventDetailDTO {
     @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
     @JsonKey(name: 'type') String? type,
     @JsonKey(name: 'image', required: false) List<String>? image,
+    @JsonKey(name: 'categories', required: true)
+    List<EventCategory>? categories,
   }) = _AstronomicEventDetailDTO;
 
   factory AstronomicEventDetailDTO.fromJson(Map<String, Object?> json) =>

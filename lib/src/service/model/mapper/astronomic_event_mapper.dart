@@ -17,6 +17,7 @@ class AstronomicEventMapper
       image: object.image,
       notification: const [],
       topics: object.topics ?? const [],
+      categories: object.categories ?? const [],
     );
   }
 
@@ -32,6 +33,7 @@ class AstronomicEventMapper
       type: object.type,
       image: object.image,
       topics: object.topics,
+      categories: object.categories,
     );
   }
 }

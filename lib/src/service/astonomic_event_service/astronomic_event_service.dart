@@ -5,6 +5,7 @@ import 'package:space_backend/src/repository/astronomic_event_repository.dart';
 import 'package:space_backend/src/repository/notification_repository.dart';
 import 'package:space_backend/src/service/model/dto/astronomic_event_detail_dto/astronomic_event_detail_dto.dart';
 import 'package:space_backend/src/service/model/dto/astronomic_event_dto/astronomic_event_dto.dart';
+import 'package:space_backend/src/service/model/dto/event_category_dto/event_category_dto.dart';
 import 'package:space_backend/src/service/model/entity/astronomic_event_entity/astronomic_event_entity.dart';
 import 'package:space_backend/src/service/model/mapper/astronomic_event_detail_mapper.dart';
 import 'package:space_backend/src/service/model/mapper/astronomic_event_mapper.dart';
@@ -69,5 +70,9 @@ class AstronomicEventService {
       nearestTopic,
     );
     return result.data!.map((e) => AstronomicEventMapper().from(e)).toList();
+  }
+
+  Future<EventCategoryDTO> getAstronomicEventCategoryList() {
+    return _astronomicEventRepository.getAstronomicEventCategoryList();
   }
 }

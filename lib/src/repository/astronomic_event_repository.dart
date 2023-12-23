@@ -4,7 +4,9 @@ import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/base_repository/base_repository.dart';
 import 'package:space_backend/src/repository/mongo_pipeline/astronomic_event_pipeline.dart';
+import 'package:space_backend/src/service/model/dto/event_category_dto/event_category_dto.dart';
 import 'package:space_backend/src/service/model/entity/astronomic_event_entity/astronomic_event_entity.dart';
+import 'package:space_backend/src/service/model/enum/event_category.dart';
 import 'package:space_backend/src/util/exception/custom_exception.dart';
 
 class AstronomicEventRepository with BaseRepository {
@@ -122,6 +124,14 @@ class AstronomicEventRepository with BaseRepository {
     return ResponseEntity(
       statusCode: 200,
       data: id as T,
+    );
+  }
+
+  Future<EventCategoryDTO> getAstronomicEventCategoryList() {
+    return Future.value(
+      EventCategoryDTO(
+        categories: EventCategory.values,
+      ),
     );
   }
 }

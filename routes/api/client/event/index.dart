@@ -4,9 +4,14 @@ import 'package:space_backend/src/util/extension/request_extension.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   final astronomicEventController = AstronomicEventController();
+  final id = context.request.uri.queryParameters['id'];
   switch (context.request.method) {
     case HttpMethod.get:
-      return astronomicEventController.getAstronomicEventList(context);
+      if (id != null) {
+        return astronomicEventController.getAstronomicEventById(context, id);
+      } else {
+        return astronomicEventController.getAstronomicEventList(context);
+      }
     case HttpMethod.post:
     case HttpMethod.put:
     case HttpMethod.patch:
