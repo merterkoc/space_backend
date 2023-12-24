@@ -155,4 +155,20 @@ class AstronomicEventController {
       body: result,
     );
   }
+
+  Future<Response> getAstronomicEventByCategory(
+    RequestContext context,
+    String category,
+  ) async {
+    final size = int.tryParse(context.request.uri.queryParameters['size']!);
+    final page = int.tryParse(context.request.uri.queryParameters['page']!);
+    final response = await _astronomicEventService.getAstronomicEventByCategory(
+      page!,
+      size!,
+      category,
+    );
+    return Response().ok(
+      body: response,
+    );
+  }
 }

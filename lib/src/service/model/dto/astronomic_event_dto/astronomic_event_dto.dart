@@ -16,8 +16,7 @@ class AstronomicEventDTO with _$AstronomicEventDTO {
     createToJson: true,
   )
   factory AstronomicEventDTO({
-    @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId)
-    required String? id,
+    @JsonKey(name: 'id', fromJson: MongoHelper.getObjectId) required String? id,
     @JsonKey(name: 'name', required: true) String? name,
     @JsonKey(name: 'description', required: true) String? description,
     @JsonKey(name: 'start_date', required: true) DateTime? startDate,
@@ -26,7 +25,8 @@ class AstronomicEventDTO with _$AstronomicEventDTO {
     @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
     @JsonKey(name: 'type') String? type,
     @JsonKey(name: 'image', required: false) List<String>? image,
-    @JsonKey(name: 'categories', required: true) List<EventCategory>? categories,
+    @JsonKey(name: 'categories', required: true)
+    List<EventCategory>? categories,
   }) = _AstronomicEventDTO;
 
   factory AstronomicEventDTO.fromJson(Map<String, Object?> json) =>

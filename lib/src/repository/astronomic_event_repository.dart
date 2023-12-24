@@ -134,4 +134,28 @@ class AstronomicEventRepository with BaseRepository {
       ),
     );
   }
+
+  Future<ResponseEntity<List<AstronomicEventEntity>>>
+      getAstronomicEventByCategory(
+    int page,
+    int size,
+    String category,
+  ) async {
+    final result = await mongoClient.findAggregateToStream(
+      'astronomic_event',
+      AstronomicEventPipeline.findByCategory(category, page, size),
+    );
+    final newResult = result.map((e) {
+      e
+        ..remove('createdAt')
+        ..remove('updatedAt');
+      return e;
+    }).toList();
+    return ResponseEntity(
+      statusCode: 200,
+      data: List<AstronomicEventEntity>.from(
+        newResult.map(AstronomicEventEntity.fromJson),
+      ),
+    );
+  }
 }

@@ -40,4 +40,29 @@ mixin AstronomicEventPipeline {
       },
     ];
   }
+
+  static List<Map<String, Object>> findByCategory(
+    String category,
+    int page,
+    int size,
+  ) {
+    return [
+      {
+        r'$match': {
+          'categories': category,
+        },
+      },
+      {
+        r'$sort': {
+          'createdAt': 1,
+        },
+      },
+      {
+        r'$skip': (page - 1) * size,
+      },
+      {
+        r'$limit': size,
+      },
+    ];
+  }
 }
