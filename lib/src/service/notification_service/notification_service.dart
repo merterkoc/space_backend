@@ -16,7 +16,7 @@ import 'package:space_backend/src/util/observable.dart';
 
 typedef IssObserver = Observer;
 
-class NotificationService extends Observer {
+class NotificationService extends IssObserver {
   NotificationService() : super() {
     _notificationRepository = NotificationRepository();
     _firebaseRepository = FirebaseRepository();
