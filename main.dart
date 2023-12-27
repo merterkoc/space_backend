@@ -5,12 +5,20 @@ import 'package:dart_frog/dart_frog.dart';
 import 'package:mongo_pool/mongo_pool.dart';
 import 'package:space_backend/src/core/logger/logger.dart';
 import 'package:space_backend/src/env/platform_environment.dart';
+import 'package:space_backend/src/schedule/iss_scheduler.dart';
+import 'package:space_backend/src/service/notification_service/notification_service.dart';
 
 Future<void> init(InternetAddress ip, int port) async {
   final ip = InternetAddress.anyIPv4;
   final port = int.tryParse(PlatformEnvironment.port ?? '8080') ?? 8080;
   logger.i('Server started on port $port, ip $ip');
-  unawaited(initializeMongo());
+  asyncInit();
+}
+
+void asyncInit() {
+  initializeMongo();
+  ISSScheduler().getSchedule();
+  NotificationService().initialize();
 }
 
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {

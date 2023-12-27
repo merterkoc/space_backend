@@ -30,7 +30,7 @@ abstract class IDioClient {
   final Dio _dio = Dio();
 
   /// http get call
-  Future<ResponseEntity<T>> get<T>(
+  Future<Response<T>> get<T>(
     String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
@@ -49,7 +49,7 @@ abstract class IDioClient {
   }
 
   /// http post call
-  Future<ResponseEntity<T>> post<T>(
+  Future<Response<T>> post<T>(
     String uri, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
@@ -71,7 +71,7 @@ abstract class IDioClient {
   }
 
   /// http put call
-  Future<ResponseEntity<T>> put<T>(
+  Future<Response<T>> put<T>(
     String uri, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
@@ -93,7 +93,7 @@ abstract class IDioClient {
   }
 
   /// http delete call
-  Future<ResponseEntity<T>> delete<T>(
+  Future<Response<T>> delete<T>(
     String uri, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
@@ -113,56 +113,62 @@ abstract class IDioClient {
     }
   }
 
-  Future<ResponseEntity<T>> _handleResponse<T>(
+  Future<Response<T>> _handleResponse<T>(
     Response<T> response,
   ) {
     if (response.statusCode == 200 || response.statusCode == 201) {
       return Future.value(
-        ResponseEntity<T>(
-          statusCode: response.statusCode!,
+        Response(
           data: response.data as T,
+          statusCode: response.statusCode,
+          requestOptions: response.requestOptions,
         ),
       );
     } else {
       return Future.value(
-        ResponseEntity(
+        Response(
           data: response.data as T,
-          message: response.statusMessage,
-          statusCode: response.statusCode!,
+          statusCode: response.statusCode,
+          requestOptions: response.requestOptions,
         ),
       );
     }
   }
 
-  Future<ResponseEntity<T>> _handleError<T>(
+  Future<Response<T>> _handleError<T>(
     dynamic e,
   ) {
     final error = e as DioException;
     if (error.response != null) {
       return Future.value(
-        ResponseEntity<T>(
-          statusCode: error.response!.statusCode!,
-          message: error.response!.statusMessage,
-          data:
-              error.response!.statusCode == 200 && error.response?.data != null
-                  ? error.response?.data as T
-                  : null,
+        Response(
+          data: error.response!.data as T,
+          statusCode: error.response!.statusCode,
+          requestOptions: error.response!.requestOptions,
         ),
       );
     } else {
       if (error.type == DioExceptionType.connectionTimeout ||
           error.type == DioExceptionType.receiveTimeout) {
         return Future.value(
-          ResponseEntity<T>(
+          Response(
+            data: ResponseEntity<T>(
+              statusCode: 408,
+              message: 'Connection timeout',
+            ) as T,
             statusCode: 408,
-            message: 'Connection timeout',
+            requestOptions: error.requestOptions,
           ),
         );
       } else {
         return Future.value(
-          ResponseEntity<T>(
-            statusCode: 601,
-            message: 'Unknown error',
+          Response(
+            data: ResponseEntity<T>(
+              statusCode: 500,
+              message: 'Internal server error',
+            ) as T,
+            statusCode: 500,
+            requestOptions: error.requestOptions,
           ),
         );
       }
