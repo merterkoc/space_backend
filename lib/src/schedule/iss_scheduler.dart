@@ -9,7 +9,11 @@ class ISSScheduler {
     Timer.periodic(
       const Duration(seconds: 5),
       (timer) async {
-        await _issService.getISSCurrentLocation();
+        try {
+          await _issService.getISSCurrentLocation();
+        } on Exception {
+          rethrow;
+        }
       },
     );
   }

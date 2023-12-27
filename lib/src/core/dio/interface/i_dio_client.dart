@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:space_backend/src/core/dio/http_handler/default_http_handler.dart';
-import 'package:space_backend/src/core/dio/model/response_entity.dart';
 
 /// [IDioClient] is used to handle http rest api calls.
 abstract class IDioClient {
@@ -152,10 +151,6 @@ abstract class IDioClient {
           error.type == DioExceptionType.receiveTimeout) {
         return Future.value(
           Response(
-            data: ResponseEntity<T>(
-              statusCode: 408,
-              message: 'Connection timeout',
-            ) as T,
             statusCode: 408,
             requestOptions: error.requestOptions,
           ),
@@ -163,10 +158,6 @@ abstract class IDioClient {
       } else {
         return Future.value(
           Response(
-            data: ResponseEntity<T>(
-              statusCode: 500,
-              message: 'Internal server error',
-            ) as T,
             statusCode: 500,
             requestOptions: error.requestOptions,
           ),

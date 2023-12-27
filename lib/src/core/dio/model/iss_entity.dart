@@ -1,6 +1,8 @@
 class ISSResponseEntity {
   ISSResponseEntity({required this.timestamp, this.issPositionEntity});
 
+  ISSResponseEntity.failed();
+
   ISSResponseEntity.fromJson(Map<String, dynamic> json) {
     timestamp = json['timestamp'] as int;
     issPositionEntity = json['iss_position'] != null

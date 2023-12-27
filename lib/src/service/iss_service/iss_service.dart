@@ -19,7 +19,11 @@ class ISSService extends IssObservable {
   late final ISSRepository _issRepository;
 
   Future<void> getISSCurrentLocation() async {
-    final result = await _issRepository.getISSCurrentLocation();
-    notify(result);
+    try {
+      final result = await _issRepository.getISSCurrentLocation();
+      notify(result);
+    } on Exception {
+      return;
+    }
   }
 }
