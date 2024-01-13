@@ -22,7 +22,7 @@ class MongoClient {
     } catch (e) {
       throw Exception(e);
     } finally {
-      await mongoDbPoolService.release(db);
+      mongoDbPoolService.release(db);
     }
   }
 
@@ -37,7 +37,7 @@ class MongoClient {
     } catch (e) {
       throw Exception(e);
     } finally {
-      await mongoDbPoolService.release(db);
+      mongoDbPoolService.release(db);
     }
   }
 
@@ -52,7 +52,7 @@ class MongoClient {
     } catch (e) {
       throw Exception(e);
     } finally {
-      await mongoDbPoolService.release(db);
+      mongoDbPoolService.release(db);
     }
   }
 
@@ -67,7 +67,7 @@ class MongoClient {
     } catch (e) {
       throw Exception(e);
     } finally {
-      await mongoDbPoolService.release(db);
+      mongoDbPoolService.release(db);
     }
   }
 
@@ -89,7 +89,7 @@ class MongoClient {
     } catch (e) {
       throw Exception(e);
     } finally {
-      await mongoDbPoolService.release(db);
+      mongoDbPoolService.release(db);
     }
   }
 }
