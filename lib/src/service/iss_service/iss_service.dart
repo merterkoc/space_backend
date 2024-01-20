@@ -30,7 +30,7 @@ class ISSService extends IssObservable {
 
       final issDto = ISSMapper().from(result);
       _issDTOList.add(issDto);
-      if (_issDTOList.length > 900) {
+      if (_issDTOList.length > 3000) {
         _issDTOList.removeAt(0);
       }
       return _issDTOList;
