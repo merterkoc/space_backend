@@ -17,15 +17,23 @@ class ISSService extends IssObservable {
     _issRepository = ISSRepository();
   }
 
+  final List<ISSDTO> _issDTOList = [];
+
   static final ISSService _instance = ISSService._internal();
 
   late final ISSRepository _issRepository;
 
-  Future<ISSDTO> getISSCurrentLocation() async {
+  Future<List<ISSDTO>> getISSCurrentLocation() async {
     try {
       final result = await _issRepository.getISSCurrentLocation();
       notify(result);
-      return ISSMapper().from(result);
+
+      final issDto = ISSMapper().from(result);
+      _issDTOList.add(issDto);
+      if (_issDTOList.length > 900) {
+        _issDTOList.removeAt(0);
+      }
+      return _issDTOList;
     } on Exception {
       logger.e('ISSService.getISSCurrentLocation: Error');
       rethrow;
