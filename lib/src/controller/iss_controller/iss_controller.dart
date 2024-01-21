@@ -7,7 +7,7 @@ class ISSController {
 
   Future<Response> fetchISSInformation(RequestContext context) async {
     try {
-      final response = await _issService.getISSCurrentLocation();
+      final response = _issService.getISSDTOList();
       return Response().ok(
         body: response,
       );
