@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:space_backend/src/core/logger/logger.dart';
 import 'package:space_backend/src/repository/iss_repository.dart';
@@ -30,6 +31,10 @@ class ISSService extends IssObservable {
 
       final issDto = ISSMapper().from(result);
       _issDTOList.add(issDto);
+      logger.i('ISSService.getISSCurrentLocation: $issDto\nISSDTOListLenght: '
+          '${_issDTOList.length}');
+      log('ISSService.getISSCurrentLocation: $issDto\nISSDTOListLenght:'
+          ' ${_issDTOList.length}');
       if (_issDTOList.length > 3000) {
         _issDTOList.removeAt(0);
       }
@@ -38,5 +43,9 @@ class ISSService extends IssObservable {
       logger.e('ISSService.getISSCurrentLocation: Error');
       rethrow;
     }
+  }
+
+  List<ISSDTO> getISSDTOList() {
+    return _issDTOList;
   }
 }
