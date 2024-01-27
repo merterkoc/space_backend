@@ -21,7 +21,7 @@ class ISSScheduler {
       const Duration(seconds: 5),
       (timer) async {
         try {
-          await _issService.getISSCurrentLocation();
+          await _issService.updateISSCurrentLocation();
         } on Exception {
           logger.e('ISSScheduler.getSchedule: Error');
         }

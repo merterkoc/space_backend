@@ -1,13 +1,13 @@
 import 'package:dart_frog/dart_frog.dart';
-import 'package:space_backend/src/service/iss_service/iss_service.dart';
+import 'package:space_backend/src/repository/iss_repository.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
 class ISSController {
-  final ISSService _issService = ISSService();
+  final ISSRepository _issRepository = ISSRepository();
 
   Future<Response> fetchISSInformation(RequestContext context) async {
     try {
-      final response = _issService.getISSDTOList();
+      final response = await _issRepository.getISSDTOList();
       return Response().ok(
         body: response,
       );
