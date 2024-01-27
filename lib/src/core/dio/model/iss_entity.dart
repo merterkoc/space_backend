@@ -15,10 +15,12 @@ class ISSResponseEntity {
   late final int timestamp;
   late final ISSPositionEntity? issPositionEntity;
 
-  static Map<String, dynamic> toJson(ISSResponseEntity response) {
+  Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['code'] = response.timestamp;
-    data['iss_position'] = response.issPositionEntity;
+    data['timestamp'] = timestamp;
+    if (issPositionEntity != null) {
+      data['iss_position'] = issPositionEntity!.toJson();
+    }
     return data;
   }
 }
@@ -36,10 +38,10 @@ class ISSPositionEntity {
   late final String latitude;
   late final String longitude;
 
-  static Map<String, dynamic> toJson(ISSPositionEntity response) {
+  Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
-    data['latitude'] = response.latitude;
-    data['longitude'] = response.longitude;
+    data['latitude'] = latitude;
+    data['longitude'] = longitude;
     return data;
   }
 

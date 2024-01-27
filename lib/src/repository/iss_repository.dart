@@ -28,4 +28,26 @@ class ISSRepository with BaseRepository {
       throw Exception('Fail');
     }
   }
+
+  Future<ISSResponseEntity> updateISSCurrentLocation() async {
+    final result = await getISSCurrentLocation();
+    await mongoClient.insertOne(
+      'iss_position',
+      result.toJson(),
+    );
+    return result;
+  }
+
+  Future<List<ISSResponseEntity>> getISSDTOList() async {
+    final result = await mongoClient.find('iss_position');
+    final newResult = result.map((e) {
+      e
+        ..remove('createdAt')
+        ..remove('updatedAt');
+      return e;
+    }).toList();
+    return List<ISSResponseEntity>.from(
+      newResult.map(ISSResponseEntity.fromJson),
+    );
+  }
 }
