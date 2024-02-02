@@ -1,4 +1,4 @@
 crons:
   - id: update_iss
     schedule: '*/5 * * * *'
-    path: '/schedule/iss'
+    path: '/schedular/update_iss'
