@@ -44,7 +44,7 @@ class ISSRepository with BaseRepository {
   }
 
   Future<void> _trimISSLocationData() async {
-    await mongoClient.trimCollection('iss_position', 20);
+    await mongoClient.trimCollection('iss_position', 200);
   }
 
   Future<List<ISSResponseEntity>> getISSDTOList() async {
