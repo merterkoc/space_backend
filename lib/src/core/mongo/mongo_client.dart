@@ -92,4 +92,31 @@ class MongoClient {
       mongoDbPoolService.release(db);
     }
   }
+
+  Future<void> trimCollection(
+    String collectionName,
+    int maxCollectionSize,
+  ) async {
+    final db = await mongoDbPoolService.acquire();
+    try {
+      final collection = db.collection(collectionName);
+      final currentSize = await collection.count();
+
+      if (currentSize > maxCollectionSize) {
+        final oldestDocuments = await collection
+            .find(
+              where.sortBy('createdAt').limit(currentSize - maxCollectionSize),
+            )
+            .toList();
+
+        for (final doc in oldestDocuments) {
+          await collection.remove(where.id(doc['_id'] as ObjectId));
+        }
+      }
+    } catch (e) {
+      throw Exception(e);
+    } finally {
+      mongoDbPoolService.release(db);
+    }
+  }
 }

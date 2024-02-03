@@ -33,7 +33,7 @@ mixin AstronomicEventPipeline {
         r'$unset': 'isTopicMatched',
       },
       {
-        r'$skip': (page - 1) * size,
+        r'$skip': ((page - 1) * size) + 1,
       },
       {
         r'$limit': size,
