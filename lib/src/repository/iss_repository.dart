@@ -31,11 +31,20 @@ class ISSRepository with BaseRepository {
 
   Future<ISSResponseEntity> updateISSCurrentLocation() async {
     final result = await getISSCurrentLocation();
+    try {
+      await _trimISSLocationData();
+    } on Exception catch (e) {
+      throw Exception(e.toString());
+    }
     await mongoClient.insertOne(
       'iss_position',
       result.toJson(),
     );
     return result;
+  }
+
+  Future<void> _trimISSLocationData() async {
+    await mongoClient.trimCollection('iss_position', 1000);
   }
 
   Future<List<ISSResponseEntity>> getISSDTOList() async {

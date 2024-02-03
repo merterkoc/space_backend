@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:space_backend/src/core/dio/model/iss_entity.dart';
-import 'package:space_backend/src/core/logger/logger.dart';
 import 'package:space_backend/src/repository/iss_repository.dart';
 import 'package:space_backend/src/util/observable.dart';
 
@@ -24,9 +23,8 @@ class ISSService extends IssObservable {
     try {
       final result = await _issRepository.updateISSCurrentLocation();
       notify(result);
-    } on Exception {
-      logger.e('ISSService.getISSCurrentLocation: Error');
-      rethrow;
+    } on Exception catch (e) {
+      throw Exception(e.toString());
     }
   }
 
