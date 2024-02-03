@@ -28,6 +28,7 @@ Future<void> initializeMongo() async {
     final pool = MongoDbPoolService(
       MongoPoolConfiguration(
         maxLifetimeMilliseconds: 100000,
+        leakDetectionThreshold: 10000,
         uriString: PlatformEnvironment.mongoUri,
         poolSize: 1,
       ),
