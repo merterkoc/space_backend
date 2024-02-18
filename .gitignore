@@ -19,3 +19,6 @@ coverage/
 # Dart files
 **.freezed.dart
 **.g.dart
+
+# Open api json file
+public/openapi.json
