@@ -3,6 +3,8 @@ import 'package:space_backend/src/controller/firebase_controller/firebase_contro
 import 'package:space_backend/src/middleware/authorization.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
+/// @Allow(POST)
+/// @Security(bearer_auth)
 Future<Response> onRequest(RequestContext context) async {
   final isAuthenticated = context.read<AuthorizationStatus>();
   if (isAuthenticated != AuthorizationStatus.authorized) {

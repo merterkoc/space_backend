@@ -1,0 +1,10 @@
+{
+  "bearer_auth": {
+    "type": "http",
+    "scheme": "bearer",
+    "format": "JWT",
+    "description": "Enter your Bearer token",
+    "name": "Authorization",
+    "in": "header"
+  }
+}

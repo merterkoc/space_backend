@@ -3,6 +3,7 @@ import 'package:space_backend/src/controller/astronomic_event_controller/astrono
 import 'package:space_backend/src/service/model/enum/event_category.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
+/// @Allow(GET)
 Future<Response> onRequest(RequestContext context) async {
   final astronomicEventController = AstronomicEventController();
   final id = context.request.uri.queryParameters['id'];
