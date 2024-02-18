@@ -3,6 +3,8 @@ import 'package:space_backend/src/controller/topic_controller/topic_controller.d
 import 'package:space_backend/src/middleware/authorization.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
+/// @Allow(POST, GET)
+/// @Security(bearer_auth)
 Future<Response> onRequest(RequestContext context) async {
   final isAuthenticated = context.read<AuthorizationStatus>();
   if (isAuthenticated != AuthorizationStatus.authorized) {

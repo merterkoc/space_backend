@@ -3,6 +3,7 @@ import 'package:space_backend/src/controller/notification_controller/notificatio
 import 'package:space_backend/src/middleware/authorization.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
+/// @Allow(POST)
 Future<Response> onRequest(RequestContext context) async {
   final isAuthenticated = context.read<AuthorizationStatus>();
   if (isAuthenticated != AuthorizationStatus.authorized) {

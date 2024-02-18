@@ -5,6 +5,8 @@ import 'package:space_backend/src/controller/astronomic_event_controller/astrono
 import 'package:space_backend/src/middleware/authorization.dart';
 import 'package:space_backend/src/util/extension/request_extension.dart';
 
+/// @Allow(GET, POST, PUT)
+/// @Security(bearer_auth)
 Future<Response> onRequest(RequestContext context, String id) async {
   final isAuthenticated = context.read<AuthorizationStatus>();
   if (isAuthenticated != AuthorizationStatus.authorized) {
