@@ -1,5 +1,4 @@
 import 'package:mongo_pool/mongo_pool.dart';
-import 'package:space_backend/src/core/dio/model/identity_response_entity.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/base_repository/base_repository.dart';
 import 'package:space_backend/src/service/model/dto/user_dto/user_dto.dart';
@@ -20,6 +19,7 @@ class IdentityRepository with BaseRepository {
 
     final user = userEntity.copyWith(
       password: MongoHelper.hashPassword(userEntity.password),
+      role: 'user',
     );
 
     final result = await mongoClient.insertOne(
@@ -28,17 +28,16 @@ class IdentityRepository with BaseRepository {
     );
     return ResponseEntity(
       statusCode: result.ok == 1 ? 200 : 400,
-      data: result.id as T,
       message: result.errmsg,
     );
   }
 
-  Future<IdentityResponseEntity<T>> signIn<T>(UserDTO userEntity) async {
+  Future<ResponseEntity<T>> signIn<T>(UserDTO userEntity) async {
     final foundUser =
         await mongoClient.findOne('user', where.eq('email', userEntity.email));
 
     if (foundUser == null) {
-      return IdentityResponseEntity(
+      return ResponseEntity(
         statusCode: 400,
         message: 'User not found',
       );
@@ -46,7 +45,7 @@ class IdentityRepository with BaseRepository {
 
     final user = UserEntity.fromJson(foundUser);
     if (!MongoHelper.comparePassword(userEntity.password, user.password)) {
-      return IdentityResponseEntity(
+      return ResponseEntity(
         statusCode: 400,
         message: 'Password is incorrect',
       );
@@ -54,11 +53,11 @@ class IdentityRepository with BaseRepository {
     final foundUserId = (foundUser['_id'] as ObjectId).$oid;
 
     // 12.
-    final token = MongoHelper.issueToken(foundUserId);
+    final token = MongoHelper.issueToken(foundUserId, user.role!);
 
-    return IdentityResponseEntity(
+    return ResponseEntity(
       statusCode: 200,
-      access: token,
+      data: token as T,
     );
   }
 }

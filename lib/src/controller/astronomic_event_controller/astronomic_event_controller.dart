@@ -8,7 +8,7 @@ import 'package:space_backend/src/service/model/mapper/astronomic_event_mapper.d
 import 'package:space_backend/src/service/topic_service/topic_service.dart';
 import 'package:space_backend/src/util/exception/custom_exception.dart';
 import 'package:space_backend/src/util/exception/exception_handler.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 import 'package:space_backend/src/util/helper/location_helper.dart';
 
 class AstronomicEventController {

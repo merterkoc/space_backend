@@ -1,6 +1,6 @@
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/util/exception/custom_exception.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 
 mixin ExceptionHandler {
   static Response handleException(Object e) {

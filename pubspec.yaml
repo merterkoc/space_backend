@@ -14,6 +14,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   jaguar_jwt: ^3.0.0
   json_annotation: ^4.8.1
+  jwt_decoder: ^2.0.1
   logger: ^2.0.1
   meta: ^1.9.1
   mongo_pool: 1.4.0

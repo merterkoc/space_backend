@@ -1,6 +1,6 @@
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/controller/user_controller/user_controller.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 
 /// @Allow(POST)
 Future<Response> onRequest(RequestContext context) async {

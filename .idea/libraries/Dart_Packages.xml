@@ -40,7 +40,7 @@
         <entry key="basic_utils">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/basic_utils-5.7.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/basic_utils-5.5.4/lib" />
             </list>
           </value>
         </entry>
@@ -222,7 +222,7 @@
         <entry key="file">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/file-7.0.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/file-6.1.4/lib" />
             </list>
           </value>
         </entry>
@@ -278,7 +278,7 @@
         <entry key="http">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/http-1.1.2/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/http-0.13.6/lib" />
             </list>
           </value>
         </entry>
@@ -335,6 +335,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/json_serializable-6.7.1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="jwt_decoder">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/jwt_decoder-2.0.1/lib" />
             </list>
           </value>
         </entry>
@@ -481,7 +488,7 @@
         <entry key="process">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/process-5.0.2/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/process-4.2.4/lib" />
             </list>
           </value>
         </entry>
@@ -495,7 +502,7 @@
         <entry key="pub_updater">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/pub_updater-0.4.0/lib" />
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/pub_updater-0.3.0/lib" />
             </list>
           </value>
         </entry>
@@ -716,13 +723,6 @@
             </list>
           </value>
         </entry>
-        <entry key="web">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/web-0.4.0/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="web_socket_channel">
           <value>
             <list>
@@ -759,7 +759,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/args-2.4.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/async-2.11.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/auth_header-3.0.1/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/basic_utils-5.7.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/basic_utils-5.5.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/bson-4.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/buffer-1.2.2/lib" />
@@ -785,7 +785,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio-5.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/equatable-2.0.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/ffi-2.1.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-7.0.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/file-6.1.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/fixnum-1.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/freezed-2.4.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/freezed_annotation-2.4.1/lib" />
@@ -793,7 +793,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/glob-2.1.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/graphs-2.3.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/hotreloader-3.0.6/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http-1.1.2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http-0.13.6/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_methods-1.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_multi_server-3.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/http_parser-4.0.2/lib" />
@@ -802,6 +802,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/js-0.6.7/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/json_annotation-4.8.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/json_serializable-6.7.1/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/jwt_decoder-2.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/logger-2.0.2+1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/logging-1.2.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/mason_logger-0.2.12/lib" />
@@ -822,9 +823,9 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pointycastle-3.7.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pool-1.5.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/power_extensions-0.2.2/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/process-5.0.2/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/process-4.2.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pub_semver-2.1.4/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pub_updater-0.4.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pub_updater-0.3.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/pubspec_parse-1.2.3/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/rational-2.2.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sasl_scram-0.1.1/lib" />
@@ -856,7 +857,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/vm_service-11.10.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/vy_string_utils-0.4.5/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/watcher-1.1.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/web-0.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/web_socket_channel-2.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/webkit_inspection_protocol-1.2.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/win32-5.2.0/lib" />

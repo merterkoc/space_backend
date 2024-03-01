@@ -25,13 +25,13 @@ mixin MongoHelper {
     return hashPassword(password) == password2;
   }
 
-  static String issueToken(String userId) {
+  static String issueToken(String userId, String role) {
     final claimSet = JwtClaim(
       subject: userId,
       issuer: 'space_app',
       otherClaims: <String, dynamic>{
         'type': 'authenticationresponse',
-        'role': 'admin',
+        'role': role,
       },
       maxAge: const Duration(hours: 24),
     );

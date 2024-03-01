@@ -1,7 +1,7 @@
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/repository/firebase_repository.dart';
 import 'package:space_backend/src/service/model/dto/notification_info_dto/notification_info_dto.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 
 class FirebaseController {
   Future<Response> sendNotification(RequestContext context) async {

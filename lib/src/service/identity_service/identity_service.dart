@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:space_backend/src/core/dio/model/identity_response_entity.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
+import 'package:space_backend/src/core/dio/util/oauth2token/oauth2token.dart';
 import 'package:space_backend/src/repository/identity_repository.dart';
 import 'package:space_backend/src/service/model/dto/user_dto/user_dto.dart';
 import 'package:space_backend/src/service/model/entity/user_entity/user_entity.dart';
@@ -32,14 +32,27 @@ class IdentityService {
             message: error.toString(),
           ),
         );
+    if (result.statusCode == HttpStatus.ok) {
+      final response = await signIn(userDTO);
+      return ResponseEntity(
+        statusCode: response.statusCode,
+        message: response.message,
+        data: OAuth2Token(
+          accessToken: response.data.toString(),
+          tokenType: 'Bearer',
+          // TODO(mert): From token please!
+          expiresIn: 3600,
+        ),
+      );
+    }
     return result;
   }
 
-  Future<IdentityResponseEntity<dynamic>> signIn(
+  Future<ResponseEntity<dynamic>> signIn(
     UserDTO userDTO,
   ) async {
     final result = await _identityRepository.signIn<void>(userDTO).onError(
-          (error, stackTrace) => IdentityResponseEntity(
+          (error, stackTrace) => ResponseEntity(
             statusCode: HttpStatus.badRequest,
             message: error.toString(),
           ),

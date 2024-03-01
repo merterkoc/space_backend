@@ -4,7 +4,7 @@ import 'package:space_backend/src/repository/astronomic_event_repository.dart';
 import 'package:space_backend/src/service/model/dto/astronomic_event_dto/astronomic_event_dto.dart';
 import 'package:space_backend/src/service/model/dto/notification_dto/notification_dto.dart';
 import 'package:space_backend/src/service/notification_service/notification_service.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 
 class NotificationController {
   Future<Response> postNotification(RequestContext context) async {
