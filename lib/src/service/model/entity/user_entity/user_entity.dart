@@ -15,6 +15,14 @@ class UserEntity with _$UserEntity {
     required String email,
     @JsonKey(name: 'password', required: true, disallowNullValue: true)
     required String password,
+    @JsonKey(name: 'role', required: false, disallowNullValue: true)
+    String? role,
+    @JsonKey(name: 'avatar', required: false, disallowNullValue: true)
+    String? avatar,
+    @JsonKey(name: 'bio', required: false, disallowNullValue: true)
+    String? bio,
+    @JsonKey(name: 'location', required: false, disallowNullValue: true)
+    String? location,
   }) = _UserEntity;
 
   factory UserEntity.fromJson(Map<String, Object?> json) =>

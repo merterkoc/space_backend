@@ -3,7 +3,7 @@ import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/service/model/dto/topic_dto/topic_dto.dart';
 import 'package:space_backend/src/service/model/mapper/topic_mapper.dart';
 import 'package:space_backend/src/service/topic_service/topic_service.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
+import 'package:space_backend/src/util/extension/response_extension.dart';
 
 class TopicController {
   final TopicService _topicService = TopicService();
