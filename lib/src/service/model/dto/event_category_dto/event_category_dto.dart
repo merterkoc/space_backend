@@ -10,10 +10,10 @@ part 'event_category_dto.g.dart';
 class EventCategoryDTO with _$EventCategoryDTO {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory EventCategoryDTO({
-    @JsonKey(name: 'categories', required: true) required List<EventCategory>? categories,
+    @JsonKey(name: 'categories', required: true)
+    required List<EventCategory>? categories,
   }) = _EventCategoryDTO;
 
   factory EventCategoryDTO.fromJson(Map<String, Object?> json) =>
       _$EventCategoryDTOFromJson(json);
-
 }
