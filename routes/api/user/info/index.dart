@@ -1,9 +1,6 @@
 import 'package:dart_frog/dart_frog.dart';
-import 'package:jaguar_jwt/jaguar_jwt.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:space_backend/src/controller/user_controller/user_controller.dart';
 import 'package:space_backend/src/middleware/authorization.dart';
-import 'package:space_backend/src/util/extension/request_extension.dart';
 import 'package:space_backend/src/util/extension/response_extension.dart';
 
 /// @Allow(GET)
@@ -21,11 +18,6 @@ Future<Response> onRequest(RequestContext context) async {
       return Response().forbidden();
     }
   }
-
-  //Jwt parse
-
-
-
 
   switch (context.request.method) {
     case HttpMethod.get:

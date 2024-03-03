@@ -35,7 +35,8 @@ class AstronomicEventEntity with _$AstronomicEventEntity {
     @JsonKey(name: 'coordinate', required: true) CoordinateDTO? coordinate,
     @JsonKey(name: 'type', disallowNullValue: false) String? type,
     @JsonKey(name: 'image') List<String>? image,
-    @JsonKey(name: 'categories', required: false) List<EventCategory>? categories,
+    @JsonKey(name: 'categories', required: false)
+    List<EventCategory>? categories,
   }) = _AstronomicEventEntity;
 
   factory AstronomicEventEntity.fromJson(Map<String, Object?> json) =>
