@@ -34,16 +34,7 @@ class IdentityService {
         );
     if (result.statusCode == HttpStatus.ok) {
       final response = await signIn(userDTO);
-      return ResponseEntity(
-        statusCode: response.statusCode,
-        message: response.message,
-        data: OAuth2Token(
-          accessToken: response.data.toString(),
-          tokenType: 'Bearer',
-          // TODO(mert): From token please!
-          expiresIn: 3600,
-        ),
-      );
+      return response;
     }
     return result;
   }
@@ -51,12 +42,21 @@ class IdentityService {
   Future<ResponseEntity<dynamic>> signIn(
     UserDTO userDTO,
   ) async {
-    final result = await _identityRepository.signIn<void>(userDTO).onError(
+    final result = await _identityRepository.signIn<String>(userDTO).onError(
           (error, stackTrace) => ResponseEntity(
             statusCode: HttpStatus.badRequest,
             message: error.toString(),
           ),
         );
-    return result;
+    return ResponseEntity(
+      statusCode: result.statusCode,
+      message: result.message,
+      data: OAuth2Token(
+        accessToken: result.data.toString(),
+        tokenType: 'Bearer',
+        // TODO(mert): From token please!
+        expiresIn: 3600,
+      ),
+    );;
   }
 }
