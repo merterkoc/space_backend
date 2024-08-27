@@ -57,6 +57,6 @@ class IdentityService {
         // TODO(mert): From token please!
         expiresIn: 3600,
       ),
-    );;
+    );
   }
 }
