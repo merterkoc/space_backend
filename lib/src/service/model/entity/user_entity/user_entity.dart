@@ -26,16 +26,18 @@ class UserEntity with _$UserEntity {
     @JsonKey(name: 'password', required: true, disallowNullValue: true)
     required String password,
     @JsonKey(
-        fromJson: fromJsonDateTime,
-        name: 'createdAt',
-        required: false,
-        disallowNullValue: false)
+      fromJson: fromJsonDateTime,
+      name: 'createdAt',
+      required: false,
+      disallowNullValue: false,
+    )
     required DateTime? createdAt,
     @JsonKey(
-        fromJson: fromJsonDateTime,
-        name: 'updatedAt',
-        required: false,
-        disallowNullValue: false)
+      fromJson: fromJsonDateTime,
+      name: 'updatedAt',
+      required: false,
+      disallowNullValue: false,
+    )
     required DateTime? updatedAt,
     @JsonKey(name: 'role', required: false, disallowNullValue: true)
     String? role,

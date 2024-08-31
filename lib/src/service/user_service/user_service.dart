@@ -1,7 +1,6 @@
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
 import 'package:space_backend/src/repository/user_repository.dart';
 import 'package:space_backend/src/service/model/dto/user_info_dto/user_info_dto.dart';
-import 'package:space_backend/src/service/model/entity/user_entity/user_entity.dart';
 import 'package:space_backend/src/service/model/mapper/user_info_mapper.dart';
 
 class UserService {

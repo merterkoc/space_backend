@@ -9,14 +9,13 @@ part 'user_info_dto.g.dart';
 class UserInfoDto with _$UserInfoDto {
   @JsonSerializable(explicitToJson: true, createToJson: true)
   factory UserInfoDto({
-    @JsonKey(name: 'email', required: true, disallowNullValue: true)
-    required String email,
-    @JsonKey(name: 'name', required: false)
-    String? name,
     @JsonKey(name: 'avatar', required: true, disallowNullValue: true)
     required String avatar,
     @JsonKey(name: 'createdAt', required: true, disallowNullValue: true)
     required DateTime? createdAt,
+    @JsonKey(name: 'email', required: true, disallowNullValue: true)
+    required String email,
+    @JsonKey(name: 'name', required: false) String? name,
   }) = _UserInfoDto;
 
   factory UserInfoDto.fromJson(Map<String, Object?> json) =>
