@@ -20,6 +20,8 @@ class IdentityRepository with BaseRepository {
     final user = userEntity.copyWith(
       password: MongoHelper.hashPassword(userEntity.password),
       role: 'user',
+      avatar:
+          'https://api.multiavatar.com/${userEntity.name + userEntity.email}',
     );
 
     final result = await mongoClient.insertOne(
