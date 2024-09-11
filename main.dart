@@ -3,9 +3,12 @@ import 'dart:io';
 
 import 'package:dart_frog/dart_frog.dart';
 import 'package:mongo_pool/mongo_pool.dart';
+import 'package:space_backend/src/core/firebase/firebase_manager.dart';
 import 'package:space_backend/src/core/logger/logger.dart';
 import 'package:space_backend/src/env/platform_environment.dart';
 import 'package:space_backend/src/service/notification_service/notification_service.dart';
+
+
 
 Future<void> init(InternetAddress ip, int port) async {
   final ip = InternetAddress.anyIPv4;
@@ -17,6 +20,7 @@ Future<void> init(InternetAddress ip, int port) async {
 void asyncInit() {
   initializeMongo();
   NotificationService().initialize();
+  FirebaseManager().initialize();
 }
 
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) async {

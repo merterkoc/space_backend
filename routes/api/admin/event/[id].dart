@@ -2,7 +2,7 @@
 
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/controller/astronomic_event_controller/astronomic_event_controller.dart';
-import 'package:space_backend/src/middleware/authorization.dart';
+import 'package:space_backend/src/core/authentication/src/model/authorization_status.dart';
 import 'package:space_backend/src/util/extension/response_extension.dart';
 
 /// @Allow(GET, POST, PUT)

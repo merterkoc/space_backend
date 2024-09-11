@@ -5,6 +5,7 @@ mixin PlatformEnvironment {
   static const String _serverKey = 'FIREBASE_SERVER_KEY';
   static const String _mongoUri = 'MONGO_URI';
   static const String _jwtSecretKey = 'JWT_SECRET_KEY';
+  static const String _firebaseProjectId = 'FIREBASE_PROJECT_NAME';
 
   static String? get port => Platform.environment[_port];
 
@@ -32,5 +33,13 @@ mixin PlatformEnvironment {
       throw Exception('Please set $_jwtSecretKey in .env file');
     }
     return Platform.environment[_jwtSecretKey]!;
+  }
+
+  static String get firebaseProjectId {
+    final firebaseProjectId = Platform.environment[_firebaseProjectId];
+    if (firebaseProjectId == null) {
+      throw Exception('Please set $_firebaseProjectId in .env file');
+    }
+    return Platform.environment[_firebaseProjectId]!;
   }
 }

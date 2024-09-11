@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:space_backend/src/core/dio/model/iss_entity.dart';
 import 'package:space_backend/src/core/dio/model/response_entity.dart';
+import 'package:space_backend/src/core/firebase/firebase_manager.dart';
 import 'package:space_backend/src/core/logger/logger.dart';
 import 'package:space_backend/src/repository/firebase_repository.dart';
 import 'package:space_backend/src/repository/notification_repository.dart';
@@ -27,6 +28,7 @@ class NotificationService extends IssObserver {
   late final NotificationRepository _notificationRepository;
   late final FirebaseRepository _firebaseRepository;
   late final ISSService _issService;
+  late final FirebaseManager _firebaseManager;
 
   void _subscribeObservable() {
     _issService.subscribe(this);
@@ -85,6 +87,21 @@ class NotificationService extends IssObserver {
             requestOptions: RequestOptions(path: '/notification/send'),
           ),
         );
+  }
+
+  Future<void> sendNotifications(
+    NotificationDTO notifications,
+    String topic,
+  ) async {
+    await _firebaseManager.messaging.send(
+      TopicMessage(
+        topic: topic,
+        notification: Notification(
+          title: notifications.title,
+          body: notifications.body,
+        ),
+      ),
+    );
   }
 
   void initialize() {}

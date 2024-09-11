@@ -1,6 +1,6 @@
 import 'package:dart_frog/dart_frog.dart';
 import 'package:space_backend/src/controller/user_controller/user_controller.dart';
-import 'package:space_backend/src/middleware/authorization.dart';
+import 'package:space_backend/src/core/authentication/src/model/authorization_status.dart';
 import 'package:space_backend/src/util/extension/response_extension.dart';
 
 /// @Allow(GET)
